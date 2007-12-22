@@ -1,18 +1,20 @@
 .. _tut-using:
 
 ****************************
-Using the Python Interpreter
+Using the Python Interpreter 使用 Python 解释器
 ****************************
 
 
 .. _tut-invoking:
 
-Invoking the Interpreter
+Invoking the Interpreter 调用 Python 解释器
 ========================
 
 The Python interpreter is usually installed as :file:`/usr/local/bin/python` on
 those machines where it is available; putting :file:`/usr/local/bin` in your
 Unix shell's search path makes it possible to start it by typing the command ::
+
+Python 解释器通常安装在目标机器的 :file:`/usr/local/bin/python` 目录下。将 :file:`/usr/local/bin` 目录放进你的 Unix Shell 的搜索路径里，确保它可以通过输入
 
    python
 
@@ -21,10 +23,14 @@ an installation option, other places are possible; check with your local Python
 guru or system administrator.  (E.g., :file:`/usr/local/python` is a popular
 alternative location.)
 
+启动。因为安装路径是可选的，所以也可能安装在其它位置，你可以与安装 Python 的用户或系统管理员联系.（例如，:file:`/usr/local/python` 就是一个很常见的选择）
+
 On Windows machines, the Python installation is usually placed in
 :file:`C:\Python30`, though you can change this when you're running the
 installer.  To add this directory to your path,  you can type the following
 command into the command prompt in a DOS box::
+
+在 Windows 机器上， Python 通常安装在 :file:`C:\Python30` 目录。当然，我们可以在运行安装程序的时候改变它。需要把这个目录加入到我们的 Path 中的话，可以像下面这样在 DOS 窗中输入命令行：
 
    set path=%path%;C:\python30
 
@@ -32,6 +38,8 @@ Typing an end-of-file character (:kbd:`Control-D` on Unix, :kbd:`Control-Z` on
 Windows) at the primary prompt causes the interpreter to exit with a zero exit
 status.  If that doesn't work, you can exit the interpreter by typing the
 following commands: ``import sys; sys.exit()``.
+
+输入一个文件结束符（ UNIX 上是 :kbd:`Control-D` ， Windows 上是 :kbd:`Control-Z` ）解释器会以0值退出。如果没有起作用，你可以输入以下命令退出：``import sys; sys.exit()`` 。
 
 The interpreter's line-editing features usually aren't very sophisticated.  On
 Unix, whoever installed the interpreter may have enabled support for the GNU
@@ -43,10 +51,14 @@ introduction to the keys.  If nothing appears to happen, or if ``^P`` is echoed,
 command line editing isn't available; you'll only be able to use backspace to
 remove characters from the current line.
 
+解释器的行编辑功能并不复杂，装在 UNIX 上的解释器可能会有 GNU readline 库支持，这样就可以额外得到精巧的交互编辑和历史记录功能。可能确认命令行编辑器支持能力最方便的方式是在主提示符下输入 Control-P ，如果有嘟嘟声（计算机扬声器），说明你可以使用命令行编辑功能，从 :ref:`tut-interacting` 可以查到快捷键的介绍。如果什么也没有发声，或者 ``^P`` 显示了出来，说明命令行编辑功能不可用，你只有用退格键输入的命令了。
+
 The interpreter operates somewhat like the Unix shell: when called with standard
 input connected to a tty device, it reads and executes commands interactively;
 when called with a file name argument or with a file as standard input, it reads
 and executes a *script* from that file.
+
+解释器的操作有些像 UNIX Shell ：使用终端设备作为标准输入来调用它时，解释器交互的解读和执行命令，通过文件名参数或以文件作为标准输入时，它从文件中解读并执行脚本。
 
 A second way of starting the interpreter is ``python -c command [arg] ...``,
 which executes the statement(s) in *command*, analogous to the shell's
@@ -54,9 +66,13 @@ which executes the statement(s) in *command*, analogous to the shell's
 characters that are special to the shell, it is best to quote  *command* in its
 entirety with double quotes.
 
+启动解释器的第二个方法是 ``python -c command [arg] ...`` ，这种方法可以在 *命令行* 中直接执行语句，等同于 Shell 的 -c 选项。因为 Python 语句通常会包括空格之类的特殊字符，所以最好把整个 *命令* 用双引号包起来。
+
 Some Python modules are also useful as scripts.  These can be invoked using
 ``python -m module [arg] ...``, which executes the source file for *module* as
 if you had spelled out its full name on the command line.
+
+有一些 Python 模块也可以当作脚本使用。它们可以通过 ``python -m module [arg] ...`` 调用，这如同在命令行中给出其完整文件名来运行一样。
 
 Note that there is a difference between ``python file`` and ``python <file``.
 In the latter case, input requests from the program, such as calling
@@ -66,15 +82,18 @@ program will encounter end-of-file immediately.  In the former case (which is
 usually what you want) they are satisfied from whatever file or device is
 connected to standard input of the Python interpreter.
 
+注意 ``python file`` 和 ``python <file`` 是有区别的。对于后一种情况，程序类似于调用 ``sys.stdin.read()`` ，来自于确定的文件。因为在解析器开始执行之前，文件已经完全读入，所以程序指向文件尾。在前一种（这通常是我们需要的），它们可能是任意联接到解释器的标准输入，无论它们是文件还是其它设备。
+
 When a script file is used, it is sometimes useful to be able to run the script
 and enter interactive mode afterwards.  This can be done by passing :option:`-i`
 before the script.  (This does not work if the script is read from standard
 input, for the same reason as explained in the previous paragraph.)
 
+使用脚本文件时，经常会运行脚本然后进入交互模式。这也可以通过在脚本之前加上 :option:`-i` 参数来实现。（如果脚本来自标准输入，就不能这样执行，与前一段提到的原因一样。）
 
 .. _tut-argpassing:
 
-Argument Passing
+Argument Passing 参数传递
 ----------------
 
 When known to the interpreter, the script name and additional arguments
@@ -88,10 +107,11 @@ located module.  Options found after  :option:`-c` *command* or :option:`-m`
 *module* are not consumed  by the Python interpreter's option processing but
 left in ``sys.argv`` for  the command or module to handle.
 
+调用解释器时，脚本名和附加参数传入一个名为 ``sys.argv`` 的字符串列表。没有给定脚本和参数时，它至少有一个元素：``sys.argv[0]`` ，此时它是一个空字符串，脚本名指定为 ``'-'`` （表示标准输入）时，``sys.argv`` 。使用 :option:`-c` *命令* 时，``sys.argv[0] 被设定为 `-c` 。使用 :option:`-m` *模块*时，``sys.argv[0]`` 被设定为指定为模块的全名。 :option:`-c` *command* 或 :option:`-m` 之后的参数不会被 Python 解释器的选项处理机制所截获，而是留在 ``sys.argv`` 中，供脚本命令操作。
 
 .. _tut-interactive:
 
-Interactive Mode
+Interactive Mode 交互模式
 ----------------
 
 When commands are read from a tty, the interpreter is said to be in *interactive
@@ -100,6 +120,8 @@ usually three greater-than signs (``>>>``); for continuation lines it prompts
 with the *secondary prompt*, by default three dots (``...``). The interpreter
 prints a welcome message stating its version number and a copyright notice
 before printing the first prompt::
+
+从 tty 读取命令时，我们称解释器工作于交互模式。这种模式下它根据主提示符来执行，主提示符通常标识为三个大于号（``>>>``）；后续的部分被称为从属提示符，由三个点标识（``...``）。在第一行之前，解释器打印欢迎信息，版本号和授权提示：
 
    $ python
    Python 3.0a1 (py3k, Sep 12 2007, 12:21:02)
@@ -112,6 +134,8 @@ before printing the first prompt::
 Continuation lines are needed when entering a multi-line construct. As an
 example, take a look at this :keyword:`if` statement::
 
+输入多行结构时需要从属提示符了，例如，下面这个 if 语句：
+
    >>> the_world_is_flat = 1
    >>> if the_world_is_flat:
    ...     print("Be careful not to fall off!")
@@ -121,13 +145,13 @@ example, take a look at this :keyword:`if` statement::
 
 .. _tut-interp:
 
-The Interpreter and Its Environment
+The Interpreter and Its Environment 解释器及其环境
 ===================================
 
 
 .. _tut-error:
 
-Error Handling
+Error Handling 错误处理
 --------------
 
 When an error occurs, the interpreter prints an error message and a stack trace.
@@ -140,20 +164,26 @@ some cases of running out of memory.  All error messages are written to the
 standard error stream; normal output from executed commands is written to
 standard output.
 
+有错误发生时，解释器打印一个错误信息和栈跟踪器。交互模式下，它返回主提示符，如果从文件输入执行，它在打印栈跟踪器后以非零状态退出。（异常由 :keyword:`try` 语句的 :keyword:`except` 子句捕获 ）。一些非常致命的错误会导致非零状态下退出，这通常由内部矛盾和内存溢出造成，所有的错误信息都写入标准错误流；命令中执行的普通输出写入标准输出。
+
 Typing the interrupt character (usually Control-C or DEL) to the primary or
 secondary prompt cancels the input and returns to the primary prompt. [#]_
 Typing an interrupt while a command is executing raises the
 :exc:`KeyboardInterrupt` exception, which may be handled by a :keyword:`try`
 statement.
 
+在主提示符或从属提示符输入中断符（通常是 Control-C 或者 DEL）就会取消当前输入，回到主命令行。 [#]_ 执行命令行时输入一个中断符会抛出一个 :exc: `KeyboardInterrupt` 异常，它可以被 :keyword:`try` 语句截获。
 
 .. _tut-scripts:
 
-Executable Python Scripts
+Executable Python Scripts 执行 Python 脚本
 -------------------------
 
 On BSD'ish Unix systems, Python scripts can be made directly executable, like
 shell scripts, by putting the line ::
+
+BSD 类的 UNIX 系统中， Python 脚本可以像 Shell 脚本那样直接执行，只要在脚本文件开头写一行文本来指定文件和模式：
+
 
    #! /usr/bin/env python
 
@@ -164,13 +194,17 @@ with a Unix-style line ending (``'\n'``), not a Mac OS (``'\r'``) or Windows
 (``'\r\n'``) line ending.  Note that the hash, or pound, character, ``'#'``, is
 used to start a comment in Python.
 
+(要确认 Python 解释器在用户的 :envvar:`PATH` 路径中)文件前必须有 ``#!``两个字符，在某些平台上，第一行必须以 UNIX 风格的行结束符（``'\n'``）结束，不能用 Mac 或 Windows （``'\r'``）的行结束符。注意 ``'\r'`` 是 Python 的注释起始符。
+
 The script can be given an executable mode, or permission, using the
 :program:`chmod` command::
+
+脚本可以通过 `chmod` 命令指定执行模式和权限。
 
    $ chmod +x myscript.py
 
 
-Source Code Encoding
+Source Code Encoding 源程序编码
 --------------------
 
 By default, Python source files are treated as encoded in UTF-8.  In that
@@ -180,6 +214,8 @@ only uses ASCII characters for identifiers, a convention that any portable code
 should follow.  To display all these characters properly, your editor must
 recognize that the file is UTF-8, and it must use a font that supports all the
 characters in the file.
+
+默认情况下， Python 源码文件以 UTF-8 编码。
 
 It is also possible to specify a different encoding for source files.  In order
 to do this, put one more special comment line right after the ``#!`` line to
