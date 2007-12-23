@@ -221,14 +221,20 @@ It is also possible to specify a different encoding for source files.  In order
 to do this, put one more special comment line right after the ``#!`` line to
 define the source file encoding::
 
+也可以为源码文件指定不同的编码。为此，要在 ``#!`` 行后面指定一个特殊的注释行，以定义源码文件的编码:
+
    # -*- coding: encoding -*- 
 
 With that declaration, everything in the source file will be treated as having
 the encoding *encoding* instead of UTF-8.  The list of possible encodings can be
 found in the Python Library Reference, in the section on :mod:`codecs`.
 
+源码文件中的一切都会依此定义编码为 *encoding* 而非 UTF-8 。在 Python 库参考手册的 :mod: `编码` 一节可以找到所有可用的编码。
+
 For example, if your editor of choice does not support UTF-8 encoded files and
 insists on using some other encoding, say Windows-1252, you can write::
+
+例如，如果你使用的编辑器不支持 UTF-8 编码，但是支持另一种称为 Windows-1252 的编码，你可以在源码中写上：
 
    # -*- coding: cp-1252 -*-
 
@@ -236,10 +242,11 @@ and still use all characters in the Windows-1252 character set in the source
 files.  The special encoding comment must be in the *first or second* line
 within the file.
 
+这样就可以在源码文件中使用 Windows-1252 字符集。这个附加的编码注释必须在代码文件的 *第一或第二行* 。
 
 .. _tut-startup:
 
-The Interactive Startup File
+The Interactive Startup File 交互式启动文件
 ----------------------------
 
 When you use Python interactively, it is frequently handy to have some standard
@@ -248,8 +255,12 @@ setting an environment variable named :envvar:`PYTHONSTARTUP` to the name of a
 file containing your start-up commands.  This is similar to the :file:`.profile`
 feature of the Unix shells.
 
+使用 Python 解释器，我们可能需要在每次启动时执行一些命令。你可以设置一个名为 :envvar:`PYTHONSTARTUP` 的变量，指向包含启动命令的文件。这类似于 Unix Shell 的 :file:`.profile` 文件。
+
 .. % XXX This should probably be dumped in an appendix, since most people
 .. % don't use Python interactively in non-trivial ways.
+
+.. % XXX 这大概更适合放到一个附录中，因为大多数人不会以反常的方式使用 Python 解释器。
 
 This file is only read in interactive sessions, not when Python reads commands
 from a script, and not when :file:`/dev/tty` is given as the explicit source of
@@ -259,11 +270,16 @@ that it defines or imports can be used without qualification in the interactive
 session. You can also change the prompts ``sys.ps1`` and ``sys.ps2`` in this
 file.
 
+这个文件在解释器会话期是只读的，当 Python 从脚本中解读文件或以终端 :file:`/dev/tty` 作为外部命令源时则不会如此（尽管它们的行为很像是处在交互会话期）。它于解释器执行的命令处在同一个命名空间，所以由它定义或引用的一切可以在解释器中不受限制的使用。你也可以在这个文件中改变 ``sys.ps1`` and ``sys.ps2`` 指令。
+
 If you want to read an additional start-up file from the current directory, you
 can program this in the global start-up file using code like ``if
 os.path.isfile('.pythonrc.py'): exec(open('.pythonrc.py').read())``.
 If you want to use the startup file in a script, you must do this explicitly
 in the script::
+
+如果你想要在当前目录中执行附加的启动文件，可以在全局启动文件中加入类似以下的代码： ``if
+os.path.isfile('.pythonrc.py'): exec(open('.pythonrc.py').read())`` 。如果你想要在某个脚本中使用启动文件，必须要在脚本中写入这样的语句：
 
    import os
    filename = os.environ.get('PYTHONSTARTUP')
@@ -273,5 +289,5 @@ in the script::
 
 .. rubric:: Footnotes
 
-.. [#] A problem with the GNU Readline package may prevent this.
+.. [#] A problem with the GNU Readline package may prevent this. 一个GNU Readline 包的问题可能会禁止这个功能。
 
