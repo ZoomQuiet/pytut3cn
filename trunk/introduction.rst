@@ -421,7 +421,7 @@ But note that -0 is really the same as 0, so it does not count from the right!
 Out-of-range negative slice indices are truncated, but don't try this for
 single-element (non-slice) indices::
 
-
+越界的负索引会被截断，不过不要在单元素（非切割操作）索引中这么做：
 
    >>> word[-100:]
    'HelpA'
@@ -435,6 +435,8 @@ One way to remember how slices work is to think of the indices as pointing
 Then the right edge of the last character of a string of *n* characters has
 index *n*, for example::
 
+理解切片的最好方式是把索引视为两个字符 *之间* 的点，第一个字符的左边是0，字符串中第 *n* 个字符的右边是索引 *n* ，例如：
+
     +---+---+---+---+---+ 
     | H | e | l | p | A |
     +---+---+---+---+---+ 
@@ -446,35 +448,45 @@ the second row gives the corresponding negative indices. The slice from *i* to
 *j* consists of all characters between the edges labeled *i* and *j*,
 respectively.
 
+第一行给定了字符串中 0..5 各索引的位置，第二行给出了对应的负索引。从 *i* 到 *j* 的切割操作由这两个标志之间的字符组成。
+
 For non-negative indices, the length of a slice is the difference of the
 indices, if both are within bounds.  For example, the length of ``word[1:3]`` is
 2.
 
+对于非负索引，如果索引在边界内，切割长度是索引的差。例如， ``word[1:3]`` 是
+
 The built-in function :func:`len` returns the length of a string::
+
+内置函数 :func: `len` 返回字符串长充：
 
    >>> s = 'supercalifragilisticexpialidocious'
    >>> len(s)
    34
 
 
-.. seealso::
+.. seealso 参见::
 
    :ref:`typesseq`
       Strings are examples of *sequence types*, and support the common 
       operations supported by such types.
+      字符串是 *序列类型* 中的一种，支持通用的序列操作
 
    :ref:`string-methods`
       Strings support a large number of methods for
       basic transformations and searching.
+      字符串支持大量转换和搜索方法。	  
 
    :ref:`string-formatting`
       The formatting operations invoked by the :meth:`format` string method are
       described in more detail here.
+      格式化操作调用 :meth:`format` 字符串方法，在此有更详细的说明。
+      
 
 
 .. _tut-unicodestrings:
 
-About Unicode
+About Unicode 关于 Unicode
 -------------
 
 .. sectionauthor:: Marc-Andre Lemburg <mal@lemburg.com>
@@ -482,6 +494,9 @@ About Unicode
 
 Starting with Python 3.0 all strings support Unicode. 
 (See http://www.unicode.org/) 
+
+从 Python 3.0 开始字符串全面支持 Unicode
+（参见 http://www.unicode.org/）
 
 Unicode has the advantage of providing one ordinal for every character in every
 script used in modern and ancient texts. Previously, there were only 256
@@ -491,9 +506,13 @@ confusion especially with respect to internationalization (usually written as
 ``i18n`` --- ``'i'`` + 18 characters + ``'n'``) of software.  Unicode solves
 these problems by defining one code page for all scripts.
 
+Unicode 字符串为世界上每一种现代和古代的语言提供了统一的编号。以前，只有256个可用的字符编码。文本绑定到映射字符编号的代码页上。这使得软件的国际化（通过写作 ``i18n`` －－``i`` + 18 个字符 + ``'n``）极为困难。Unicod 定义了一个
+
 If you want to include special characters in a string,
 you can do so by using the Python *Unicode-Escape* encoding. The following
 example shows how::
+
+如果你想在字符串中包含一个特定的字符，可以使用 Python *Unicode掩码*编码。就像以下的例子：
 
    >>> 'Hello\u0020World !'
    'Hello World !'
@@ -501,25 +520,33 @@ example shows how::
 The escape sequence ``\u0020`` indicates to insert the Unicode character with
 the ordinal value 0x0020 (the space character) at the given position.
 
+掩码序列 ``\u0020`` 表示在给定位置插入编码为 0x0020 的字符（空格） 。
+
 Other characters are interpreted by using their respective ordinal values
 directly as Unicode ordinals.  If you have literal strings in the standard
 Latin-1 encoding that is used in many Western countries, you will find it
 convenient that the lower 256 characters of Unicode are the same as the 256
 characters of Latin-1.
 
+其它字符就像 Unicode 序号一样直接解释为它们的原始值。如果你使用在许多西方国家广泛使用的 Lattin-1 编码，会发现编码小于 256 的 Unicode 字符和 Latin-1 的那 256 个字符一样。
+
 Apart from these standard encodings, Python provides a whole set of other ways
 of creating Unicode strings on the basis of a known encoding.
+
+除了这些标准的编码，Python 还提供了一整套其它基于已知编码的方法用于生成 Unicode 字符串。
 
 To convert a string into a sequence of bytes using a specific encoding,
 string objects provide an :func:`encode` method that takes one argument, the
 name of the encoding.  Lowercase names for encodings are preferred. ::
+
+字符串对象提供了 :func:`encode` 方法将字符串转为指定编码的字节序列，它接收一个小写的编码名作为参数：
 
    >>> "����pfel".encode('utf-8')
    b'\xc3\x84pfel'
 
 .. _tut-lists:
 
-Lists
+Lists 列表
 -----
 
 Python knows a number of *compound* data types, used to group together other
@@ -527,12 +554,16 @@ values.  The most versatile is the *list*, which can be written as a list of
 comma-separated values (items) between square brackets.  List items need not all
 have the same type. ::
 
+Python 了解几种 *复合* 数据类型，用于分组其它值，最有用的是 *list*，可以写做中括号中的一列用逗号分隔的值。列表元素不需要都是同一类型：
+
    >>> a = ['spam', 'eggs', 100, 1234]
    >>> a
    ['spam', 'eggs', 100, 1234]
 
 Like string indices, list indices start at 0, and lists can be sliced,
 concatenated and so on::
+
+就像字符串索引，列表索引从 0 开始，列表可以被切割，连接，等等：
 
    >>> a[0]
    'spam'
@@ -550,6 +581,8 @@ concatenated and so on::
 Unlike strings, which are *immutable*, it is possible to change individual
 elements of a list::
 
+不像 *不可变* 的字符串，列表中的每一个元素都可以改变：
+
    >>> a
    ['spam', 'eggs', 100, 1234]
    >>> a[2] = a[2] + 23
@@ -558,6 +591,8 @@ elements of a list::
 
 Assignment to slices is also possible, and this can even change the size of the
 list or clear it entirely::
+
+也可以给一部分切割结果赋值，甚至可以改变尺寸或整个清空：
 
    >>> # Replace some items:
    ... a[0:2] = [1, 12]
@@ -582,12 +617,16 @@ list or clear it entirely::
 
 The built-in function :func:`len` also applies to lists::
 
+内置函数 :func:`len` 也可以用于列表：
+
    >>> a = ['a', 'b', 'c', 'd']
    >>> len(a)
    4
 
 It is possible to nest lists (create lists containing other lists), for
 example::
+
+列表可以嵌套（创建包含其它列表的列表），例如：
 
    >>> q = [2, 3]
    >>> p = [1, q, 4]
@@ -600,6 +639,8 @@ example::
 
 You can add something to the end of the list::
 
+你可以在列表末尾追加：
+
    >>> p[1].append('xtra')
    >>> p
    [1, [2, 3, 'xtra'], 4]
@@ -609,15 +650,18 @@ You can add something to the end of the list::
 Note that in the last example, ``p[1]`` and ``q`` really refer to the same
 object!  We'll come back to *object semantics* later.
 
+请注意前一个例子，``p[1]`` 和 ``q`` 确实指向了同一个对象！我们在后面会讨论 *对象语义*。
 
 .. _tut-firststeps:
 
-First Steps Towards Programming
+First Steps Towards Programming 向编程迈进第一步
 ===============================
 
 Of course, we can use Python for more complicated tasks than adding two and two
 together.  For instance, we can write an initial sub-sequence of the *Fibonacci*
 series as follows::
+
+当然，我们可以将 Python 用于比 2 加 2 更复杂的任务。例如，我们可以写出 *菲波那契数列* 的前一部分：
 
    >>> # Fibonacci series:
    ... # the sum of two elements defines the next
@@ -635,11 +679,15 @@ series as follows::
 
 This example introduces several new features.
 
+这个例子介绍了几个新功能
+
 * The first line contains a *multiple assignment*: the variables ``a`` and ``b``
   simultaneously get the new values 0 and 1.  On the last line this is used again,
   demonstrating that the expressions on the right-hand side are all evaluated
   first before any of the assignments take place.  The right-hand side expressions
   are evaluated  from the left to the right.
+
+* 第一行包含了一个 *多项赋值*：变量 ``a`` 和 ``b`` 同时得到了新的值 0 和 1 。最后一行又这样使用了一次，说明等号右边的表达式在赋值之前首先被完全解析。右边的表达式从左向右计算。
 
 * The :keyword:`while` loop executes as long as the condition (here: ``b < 10``)
   remains true.  In Python, like in C, any non-zero integer value is true; zero is
@@ -650,6 +698,8 @@ This example introduces several new features.
   (equal to), ``<=`` (less than or equal to), ``>=`` (greater than or equal to)
   and ``!=`` (not equal to).
 
+* :keyword:`while 循环在条件为真（这里： ``b < 10``）时反复执行。在 Python 中和 C 一样，任何非零整数值为 true，0 是 false。条件也可以是一个字符串或列表值，事实上任何序列，任何长度不为0的东西都是 true，空序列为 false。示例中的测试是一个简单的比较。标准比较操作符和 C 中的写法一样： ``<``（小于）、``<``（大于）、``==``（等于）、``<=``（小于等于）、``>=``（大于等于）和``!=``（不等于）。
+
 * The *body* of the loop is *indented*: indentation is Python's way of grouping
   statements.  Python does not (yet!) provide an intelligent input line editing
   facility, so you have to type a tab or space(s) for each indented line.  In
@@ -659,6 +709,8 @@ This example introduces several new features.
   completion (since the parser cannot guess when you have typed the last line).
   Note that each line within a basic block must be indented by the same amount.
 
+* 循环 *体* 是缩进的：缩进是Python的语法分组方式。Python（仍然！）没有提供一个智能行输入能力，所以你应该为每一个缩进行输入制表符或空格。实际上你应该用一个文本编辑器来应对更复杂的 Python 代码输入；大多数文本编辑器都有一个自动缩进功能。交互式的输入复合语法时，必须输入一个空行以指明完成（因为解释器猜不出你什么时候输入最后一行）。注意代码块中的每一行都要缩进同样的数目。
+
 * The :func:`print` function writes the value of the expression(s) it is
   given.  It differs from just writing the expression you want to write (as we did
   earlier in the calculator examples) in the way it handles multiple 
@@ -666,11 +718,15 @@ This example introduces several new features.
   and strings.  Strings are printed without quotes, and a space is inserted
   between items, so you can format things nicely, like this::
 
+* :func:`print` 函数输出给定的表达式值。它不同于简单的输出你想输出的表达式（就像前面的计算器示例），而是可以输出多个表达式，大浮点数和字符串。字符串不带引号打印，两项之间用空格分开，你可以美化格式，像这样：
+
      >>> i = 256*256
      >>> print('The value of i is', i)
      The value of i is 65536
 
    The keyword end can be used to avoid the newline after the output::
+
+   关键字 end 可以用于在输出后防止换行：
 
      >>> a, b = 0, 1
      >>> while b < 1000:
@@ -683,5 +739,5 @@ This example introduces several new features.
  Note that nothing appeared after the loop ended, until we printed
  a newline.
 
-
+请注意循环结束后什么也不显示，除非我们打印一个空行。
 
