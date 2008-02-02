@@ -709,5 +709,5 @@ Here is an example of a multi-line docstring::
 .. [#] Actually, *call by object reference* would be a better description, since if a
    mutable object is passed, the caller will see any changes the callee makes to it
    (items inserted into a list).
-   实际上，*由对象引用调用*可能是个更好的描述，因为，如果传递一个可变对象，调用者会观察到因调用发生的变化（如元素插入列表）。
+   实际上，*由对象引用调用*可能是个更好的描述。因为，如果传递一个可变对象，调用者会观察到因调用发生的变化（如元素插入列表）。
 
