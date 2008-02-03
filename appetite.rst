@@ -19,7 +19,7 @@ writing the testing code a tedious task.  Or maybe you've written a program that
 could use an extension language, and you don't want to design and implement a
 whole new language for your application.
 
-如果你是一个专业的开发者，你可能要用几个C/C++/Java库工作，但是发现通常的编写/编译/测试/重编译周期太慢了，可能你在可能你在给每个库编写对应的测试代码，但发现这是个烦人的活。或者你在编写一个带有扩展语言的程序，又不想给你的应用程序设计和实现一门全新的语言。
+如果你是一个专业的开发者，你可能不得不用到很多的C/C++/Java库工作，而且编写/编译/测试/重编译周期太长了，可能你在可能你在给每个库编写对应的测试代码，但发现这是个烦人的活。或者你在编写一个程序，需要用到一门扩展语言，但是你又不想重新设计和实现一套。
 
 Python is just the language for you.
 
@@ -59,7 +59,7 @@ interpreter can be used interactively, which makes it easy to experiment with
 features of the language, to write throw-away programs, or to test functions
 during bottom-up program development. It is also a handy desk calculator.
 
-Python 是一门解释型语言，因为不需要编译和链接的时间，它可以帮你省下一些开发时间。解释器可以交互式的使用，这样就可以很方便的测试语言中的各种功能，以便于编写发布用的程序，或者进行自下而上的开发。还可以当它是一个随手可得的计算器。
+Python 是一门解释型语言，因为不需要编译和链接的时间，它可以帮你省下一些开发时间。解释器可以交互式的使用，基于语言给定的功能，你可以写一些实验性质的程序，扔掉也无所谓。或者还可以当它是一个随手可得的计算器。
 
 Python enables programs to be written compactly and readably.  Programs written
 in Python are typically much shorter than equivalent C,  C++, or Java programs,
