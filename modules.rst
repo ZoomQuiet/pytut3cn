@@ -142,13 +142,20 @@ you have already defined.
 Executing modules as scripts
 ----------------------------
 
+像脚本一样运行一个模块
+----------------------
+
 When you run a Python module with ::
+
+使用下面的命令运行一个Python模块::
 
    python fibo.py <arguments>
 
 the code in the module will be executed, just as if you imported it, but with
 the ``__name__`` set to ``"__main__"``.  That means that by adding this code at
 the end of your module::
+
+如果你的模块里面的代码就会执行，就好像你导入他们一样，``__name__``会赋值为``"__main__"``。也就是说，你在模块的最下面加上如下代码::
 
    if __name__ == "__main__":
        import sys
@@ -158,10 +165,14 @@ you can make the file usable as a script as well as an importable module,
 because the code that parses the command line only runs if the module is
 executed as the "main" file::
 
+这个文件可以当作一个脚本来使用。而这部分代码只有在这个模块被当作"主"程序执行时才会被执行::
+
    $ python fibo.py 50
    1 1 2 3 5 8 13 21 34
 
 If the module is imported, the code is not run::
+
+如果这个模块是被导入的，那么这些代码是不被执行的::
 
    >>> import fibo
    >>>
@@ -169,11 +180,16 @@ If the module is imported, the code is not run::
 This is often used either to provide a convenient user interface to a module, or
 for testing purposes (running the module as a script executes a test suite).
 
+模块经常通过这种写法来提供一些方便的接口，或者用来测试（直接运行脚本，会执行一个/组测试用例）。
+
 
 .. _tut-searchpath:
 
 The Module Search Path
 ----------------------
+
+模块的搜索路径
+--------------
 
 .. index:: triple: module; search; path
 
@@ -185,6 +201,8 @@ directory names.  When :envvar:`PYTHONPATH` is not set, or when the file is not
 found there, the search continues in an installation-dependent default path; on
 Unix, this is usually :file:`.:/usr/local/lib/python`.
 
+当试图导入一个叫做:mod:`spam`的模块，解释器会首先在当前目录搜索一个叫做:file:`spam.py`的文件，然后会依次寻找定义在环境变量:envvar:`PYTHONPATH`中的所有目录。定义:envvar:`PYTHONPATH`的语法和定义环境变量:envvar:`PATH`一样，都是一系列目录的列表。如果:envvar:`PYTHONPATH`没有定义，或者按照上面的路径没有找到这个文件，那么解释器会继续在Python安装时定义的默认目录来寻找。在Unix中，通常都是在:file:`.:/usr/local/lib/python`。
+
 Actually, modules are searched in the list of directories given by the variable
 ``sys.path`` which is initialized from the directory containing the input script
 (or the current directory), :envvar:`PYTHONPATH` and the installation- dependent
@@ -195,11 +213,17 @@ the same name as a standard module, or Python will attempt to load the script as
 a module when that module is imported. This will generally be an error.  See
 section :ref:`tut-standardmodules` for more information.
 
+实际上，这些模块都是在给定的变量``sys.path``中定义的目录里寻找。``sys.path``包含了输入脚本的目录（或者说当前目录），:envvar:`PYTHONPATH`和安装时候的默认目录。Python程序员可以去修改这个搜索路径。注意，因为被执行的脚本所在的目录也在模块的搜索路径中，那么被执行的脚本的名字一定要和标准的模块名称区别开来。这非常重要，否则当要导入标准模块的时候，Python会试图导入这个脚本。这会导致错误的发生。请参阅:ref:`tut-standardmodules`章节获取更多信息。
+
 .. %
     Do we need stuff on zip files etc. ? DUBOIS
+	我们是不是考虑一下从zip抑或其他文件里面导入模块？
 
 "Compiled" Python files
 -----------------------
+
+“编译的”Python文件
+------------------
 
 As an important speed-up of the start-up time for short programs that use a lot
 of standard modules, if a file called :file:`spam.pyc` exists in the directory
@@ -207,6 +231,8 @@ where :file:`spam.py` is found, this is assumed to contain an
 already-"byte-compiled" version of the module :mod:`spam`. The modification time
 of the version of :file:`spam.py` used to create :file:`spam.pyc` is recorded in
 :file:`spam.pyc`, and the :file:`.pyc` file is ignored if these don't match.
+
+
 
 Normally, you don't need to do anything to create the :file:`spam.pyc` file.
 Whenever :file:`spam.py` is successfully compiled, an attempt is made to write
