@@ -13,7 +13,7 @@ split it into several files for easier maintenance.  You may also want to use a
 handy function that you've written in several programs without copying its
 definition into each program.
 
-如果你从Python解释器退出再进入，那么你定义的所有的方法和变量就都消失了。所以，如果你想写一个能保存长一点的程序，你最好使用一个文本编辑器保存下这些代码，把保存好的文件作为Python解释器的输入。这就是传说中的*脚本*。当你的程序能够长时间保存了，你就更加希望把他们（按照某种形式）拆分以便于管理。你可能还需要一个的方法，以便在不同的程序中方便的调用，而不是把一坨代码考来考去。
+如果你从Python解释器退出再进入，那么你定义的所有的方法和变量就都消失了。所以，如果你想写一个能保存长一点的程序，你最好使用一个文本编辑器保存这些代码，把保存好的文件作为Python解释器的输入。这就是传说中的*脚本*。当你的程序能够长时间保存了，你就更加希望把他们（按照某种形式）拆分以便于管理。你可能还需要有个办法法，在不同的程序中方便的调用，而不是把一坨代码拷来拷去。
 
 To support this, Python has a way to put definitions in a file and use them in a
 script or in an interactive instance of the interpreter. Such a file is called a
@@ -21,7 +21,7 @@ script or in an interactive instance of the interpreter. Such a file is called a
 the *main* module (the collection of variables that you have access to in a
 script executed at the top level and in calculator mode).
 
-为了支持这些，Python提供了一个途径，把这些定义存放在文件中，为一些脚本或者交互式的解释器（实例）使用。这个文件被称为*模块*，模块中的定义可以被*导入*到其他的模块或者*主*模块（*主*模块是执行脚本的最上层或计算模式下的一组可访问变量的集合）
+为此 Python 提供了一个办法，把这些定义存放在文件中，为一些脚本或者交互式的解释器实例使用。这个文件被称为*模块*，模块中的定义可以被*导入*到其他的模块或者*主*模块（*主*模块是执行脚本的最上层或计算模式下的一组可访问变量的集合）
 
 A module is a file containing Python definitions and statements.  The file name
 is the module name with the suffix :file:`.py` appended.  Within a module, the
@@ -29,7 +29,7 @@ module's name (as a string) is available as the value of the global variable
 ``__name__``.  For instance, use your favorite text editor to create a file
 called :file:`fibo.py` in the current directory with the following contents::
 
-一个模块就是一个拥有Python定义和声明的文件。文件名就是模块名称，以:file:`.py`结尾。针对一个模块，模块的名称（字符串）和这个模块提供的全局变量``__name__``是一样的。例如，用你贴身的编辑器在当前目录创建一个叫做:file:`fibo.py`的文件，内容如下::
+模块就是拥有 Python 定义和声明的文件。文件名就是模块名称，以 :file:`.py` 结尾。针对一个模块，模块的名称（字符串）和这个模块提供的全局变量 ``__name__`` 是一样的。例如，用你贴心的编辑器在当前目录创建一个叫做 :file:`fibo.py` 的文件，内容如下::
 
    # Fibonacci numbers module
    # 斐波那契数 模块
@@ -51,7 +51,7 @@ called :file:`fibo.py` in the current directory with the following contents::
 Now enter the Python interpreter and import this module with the following
 command::
 
-现在进入Python解释器，通过如下命令导入这个模块
+现在进入 Python 解释器，通过如下命令导入这个模块
 
    >>> import fibo
 
@@ -59,7 +59,7 @@ This does not enter the names of the functions defined in ``fibo``  directly in
 the current symbol table; it only enters the module name ``fibo`` there. Using
 the module name you can access the functions::
 
-这并没有把``fibo``里面定义的方法名称直接导入符号表，他只是把``fibo``这个模块放在这了。你可以通过模块的名称来使用这些方法::
+这并没有把``fibo``里面定义的方法名称直接导入符号表，他只是把 ``fibo`` 这个模块放在这了。你可以通过模块的名称来使用这些方法::
 
    >>> fibo.fib(1000)
    1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
@@ -79,17 +79,16 @@ If you intend to use a function often you can assign it to a local name::
 
 .. _tut-moremodules:
 
-More on Modules
+More on Modules 深入模块
 ===============
 
-更多的关于模块
-==============
+
 
 A module can contain executable statements as well as function definitions.
 These statements are intended to initialize the module. They are executed only
 the *first* time the module is imported somewhere. [#]_
 
-一个模块除了方法定义，还可以包括可执行的代码。这些代码一般用来初始化这个模块。这些代码只有在*第一次*被导入时才会被执行。 [#]_
+模块除了方法定义，还可以包括可执行的代码。这些代码一般用来初始化这个模块。这些代码只有在*第一次*被导入时才会被执行。 [#]_
 
 Each module has its own private symbol table, which is used as the global symbol
 table by all functions defined in the module. Thus, the author of a module can
@@ -98,14 +97,14 @@ with a user's global variables. On the other hand, if you know what you are
 doing you can touch a module's global variables with the same notation used to
 refer to its functions, ``modname.itemname``.
 
-每个模块有各自独立的字符表，在模块内部为所有的函数当作全局字符表来使用。所以，模块的作者可以放心大胆的在模块内部使用这些全局变量，而不用担心把其他用户/模块的全局变量搞花。从另一个方面，当你确定你知道你在干什么的话，你也可以通过``modname.itemname``这样的表示法来访问模块内的函数。
+每个模块有各自独立的符号表，在模块内部为所有的函数当作全局符号表来使用。所以，模块的作者可以放心大胆的在模块内部使用这些全局变量，而不用担心把其他用户的全局变量搞花。从另一个方面，当你确定你知道你在干什么的话，你也可以通过``modname.itemname``这样的表示法来访问模块内的函数。
 
 Modules can import other modules.  It is customary but not required to place all
 :keyword:`import` statements at the beginning of a module (or script, for that
 matter).  The imported module names are placed in the importing module's global
 symbol table.
 
-模块是可以导入其他模块的。在一个模块（或者脚本，或者其他地方）的最前面使用:keyword:`import`来导入一个模块，当然这只是一个惯例，而不是强制的。被导入的模块的名称讲被放入当前操作的模块的字符表中。
+模块是可以导入其他模块的。在一个模块（或者脚本，或者其他地方）的最前面使用 :keyword:`import` 来导入一个模块，当然这只是一个惯例，而不是强制的。被导入的模块的名称将被放入当前操作的模块的符号表中。
 
 There is a variant of the :keyword:`import` statement that imports names from a
 module directly into the importing module's symbol table.  For example::
@@ -119,11 +118,11 @@ module directly into the importing module's symbol table.  For example::
 This does not introduce the module name from which the imports are taken in the
 local symbol table (so in the example, ``fibo`` is not defined).
 
-这种导入的方法将不会把被导入的模块的名称放在当前的字符表中（所以在这个例子里面，``fibo``这个名称是没有定义的）。
+这种导入的方法不会把被导入的模块的名称放在当前的字符表中（所以在这个例子里面，``fibo``这个名称是没有定义的）。
 
 There is even a variant to import all names that a module defines::
 
-这还有一种方法，可以一次性的把模块中的所有（函数，变量的）名称都导入到当前模块的字符表::
+这还有一种方法，可以一次性的把模块中的所有（函数，变量）名称都导入到当前模块的字符表::
 
    >>> from fibo import *
    >>> fib(500)
@@ -139,15 +138,13 @@ you have already defined.
 
 .. _tut-modulesasscripts:
 
-Executing modules as scripts
+Executing modules as scripts 像脚本一样运行模块
 ----------------------------
 
-像脚本一样运行一个模块
-----------------------
 
 When you run a Python module with ::
 
-使用下面的命令运行一个Python模块::
+使用下面的命令运行一个 Python 模块::
 
    python fibo.py <arguments>
 
@@ -155,7 +152,7 @@ the code in the module will be executed, just as if you imported it, but with
 the ``__name__`` set to ``"__main__"``.  That means that by adding this code at
 the end of your module::
 
-如果你的模块里面的代码就会执行，就好像你导入他们一样，``__name__``会赋值为``"__main__"``。也就是说，你在模块的最下面加上如下代码::
+如果你的模块里面的代码就会执行，就好像你导入他们一样，``__name__`` 会赋值为 ``"__main__"``。也就是说，你在模块的最下面加上如下代码::
 
    if __name__ == "__main__":
        import sys
@@ -185,10 +182,7 @@ for testing purposes (running the module as a script executes a test suite).
 
 .. _tut-searchpath:
 
-The Module Search Path
-----------------------
-
-模块的搜索路径
+The Module Search Path 模块的搜索路径
 --------------
 
 .. index:: triple: module; search; path
@@ -201,7 +195,7 @@ directory names.  When :envvar:`PYTHONPATH` is not set, or when the file is not
 found there, the search continues in an installation-dependent default path; on
 Unix, this is usually :file:`.:/usr/local/lib/python`.
 
-当试图导入一个叫做:mod:`spam`的模块，解释器会首先在当前目录搜索一个叫做:file:`spam.py`的文件，然后会依次寻找定义在环境变量:envvar:`PYTHONPATH`中的所有目录。定义:envvar:`PYTHONPATH`的语法和定义环境变量:envvar:`PATH`一样，都是一系列目录的列表。如果:envvar:`PYTHONPATH`没有定义，或者按照上面的路径没有找到这个文件，那么解释器会继续在Python安装时定义的默认目录来寻找。在Unix中，通常都是在:file:`.:/usr/local/lib/python`。
+当试图导入一个叫做 :mod:`spam` 的模块，解释器会首先在当前目录搜索一个叫做 :file:`spam.py` 的文件，然后会依次寻找定义在环境变量 :envvar:`PYTHONPATH` 中的所有目录。定义:envvar:`PYTHONPATH`的语法和定义环境变量:envvar:`PATH`一样，都是一系列目录的列表。如果:envvar:`PYTHONPATH`没有定义，或者按照上面的路径没有找到这个文件，那么解释器会继续在Python安装时定义的默认目录来寻找。在Unix中，通常都是在:file:`.:/usr/local/lib/python`。
 
 Actually, modules are searched in the list of directories given by the variable
 ``sys.path`` which is initialized from the directory containing the input script
@@ -213,16 +207,13 @@ the same name as a standard module, or Python will attempt to load the script as
 a module when that module is imported. This will generally be an error.  See
 section :ref:`tut-standardmodules` for more information.
 
-实际上，这些模块都是在给定的变量``sys.path``中定义的目录里寻找。``sys.path``包含了输入脚本的目录（或者说当前目录），:envvar:`PYTHONPATH`和安装时候的默认目录。Python程序员可以去修改这个搜索路径。注意，因为被执行的脚本所在的目录也在模块的搜索路径中，那么被执行的脚本的名字一定要和标准的模块名称区别开来。这非常重要，否则当要导入标准模块的时候，Python会试图导入这个脚本。这会导致错误的发生。请参阅:ref:`tut-standardmodules`章节获取更多信息。
+实际上，这些模块都是在变量 ``sys.path`` 定义的目录里寻找。``sys.path`` 包含了输入脚本的目录（或者说当前目录），:envvar:`PYTHONPATH` 和安装时候的默认目录。Python 程序员可以去修改这个搜索路径。注意，因为被执行的脚本所在的目录也在模块的搜索路径中，那么被执行的脚本的名字一定要和标准的模块名称区别开来。这非常重要，否则当要导入标准模块的时候，Python 会试图导入这个脚本。这会导致错误的发生。请参阅 :ref:`tut-standardmodules` 章节获取更多信息。
 
 .. %
     Do we need stuff on zip files etc. ? DUBOIS
 	我们是不是考虑一下从zip抑或其他文件里面导入模块？
 
-"Compiled" Python files
------------------------
-
-“编译的”Python文件
+"Compiled" Python files “编译的”Python文件
 ------------------
 
 As an important speed-up of the start-up time for short programs that use a lot
