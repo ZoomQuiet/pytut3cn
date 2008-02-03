@@ -1,7 +1,7 @@
 .. _tut-modules:
 
 *******
-Modules
+Modules 模块
 *******
 
 If you quit from the Python interpreter and enter it again, the definitions you
@@ -13,11 +13,15 @@ split it into several files for easier maintenance.  You may also want to use a
 handy function that you've written in several programs without copying its
 definition into each program.
 
+如果你从Python解释器退出再进入，那么你定义的所有的方法和变量就都消失了。所以，如果你想写一个能保存长一点的程序，你最好使用一个文本编辑器保存下这些代码，把保存好的文件作为Python解释器的输入。这就是传说中的*脚本*。当你的程序能够长时间保存了，你就更加希望把他们（按照某种形式）拆分以便于管理。你可能还需要一个的方法，以便在不同的程序中方便的调用，而不是把一坨代码考来考去。
+
 To support this, Python has a way to put definitions in a file and use them in a
 script or in an interactive instance of the interpreter. Such a file is called a
 *module*; definitions from a module can be *imported* into other modules or into
 the *main* module (the collection of variables that you have access to in a
 script executed at the top level and in calculator mode).
+
+为了支持这些，Python提供了一个途径，把这些定义存放在文件中，为一些脚本或者交互式的解释器（实例）使用。这个文件被称为*模块*，模块中的定义可以被*导入*到其他的模块或者*主*模块（*主*模块是执行脚本的最上层或计算模式下的一组可访问变量的集合）
 
 A module is a file containing Python definitions and statements.  The file name
 is the module name with the suffix :file:`.py` appended.  Within a module, the
@@ -25,7 +29,10 @@ module's name (as a string) is available as the value of the global variable
 ``__name__``.  For instance, use your favorite text editor to create a file
 called :file:`fibo.py` in the current directory with the following contents::
 
+一个模块就是一个拥有Python定义和声明的文件。文件名就是模块名称，以:file:`.py`结尾。针对一个模块，模块的名称（字符串）和这个模块提供的全局变量``__name__``是一样的。例如，用你贴身的编辑器在当前目录创建一个叫做:file:`fibo.py`的文件，内容如下::
+
    # Fibonacci numbers module
+   # 斐波那契数 模块
 
    def fib(n):    # write Fibonacci series up to n
        a, b = 0, 1
@@ -44,11 +51,15 @@ called :file:`fibo.py` in the current directory with the following contents::
 Now enter the Python interpreter and import this module with the following
 command::
 
+现在进入Python解释器，通过如下命令导入这个模块
+
    >>> import fibo
 
 This does not enter the names of the functions defined in ``fibo``  directly in
 the current symbol table; it only enters the module name ``fibo`` there. Using
 the module name you can access the functions::
+
+这并没有把``fibo``里面定义的方法名称直接导入符号表，他只是把``fibo``这个模块放在这了。你可以通过模块的名称来使用这些方法::
 
    >>> fibo.fib(1000)
    1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
@@ -58,6 +69,8 @@ the module name you can access the functions::
    'fibo'
 
 If you intend to use a function often you can assign it to a local name::
+
+你也可以用一个本地的名字来存放某个方法，这样用起来会比较方便。
 
    >>> fib = fibo.fib
    >>> fib(500)
@@ -69,9 +82,14 @@ If you intend to use a function often you can assign it to a local name::
 More on Modules
 ===============
 
+更多的关于模块
+==============
+
 A module can contain executable statements as well as function definitions.
 These statements are intended to initialize the module. They are executed only
 the *first* time the module is imported somewhere. [#]_
+
+一个模块除了方法定义，还可以包括可执行的代码。这些代码一般用来初始化这个模块。这些代码只有在*第一次*被导入时才会被执行。 [#]_
 
 Each module has its own private symbol table, which is used as the global symbol
 table by all functions defined in the module. Thus, the author of a module can
@@ -80,13 +98,19 @@ with a user's global variables. On the other hand, if you know what you are
 doing you can touch a module's global variables with the same notation used to
 refer to its functions, ``modname.itemname``.
 
+每个模块有各自独立的字符表，在模块内部为所有的函数当作全局字符表来使用。所以，模块的作者可以放心大胆的在模块内部使用这些全局变量，而不用担心把其他用户/模块的全局变量搞花。从另一个方面，当你确定你知道你在干什么的话，你也可以通过``modname.itemname``这样的表示法来访问模块内的函数。
+
 Modules can import other modules.  It is customary but not required to place all
 :keyword:`import` statements at the beginning of a module (or script, for that
 matter).  The imported module names are placed in the importing module's global
 symbol table.
 
+模块是可以导入其他模块的。在一个模块（或者脚本，或者其他地方）的最前面使用:keyword:`import`来导入一个模块，当然这只是一个惯例，而不是强制的。被导入的模块的名称讲被放入当前操作的模块的字符表中。
+
 There is a variant of the :keyword:`import` statement that imports names from a
 module directly into the importing module's symbol table.  For example::
+
+还有一种导入的方法，可以使用:keyword:`import`直接把模块内（函数，变量的）名称导入到当前操作模块。比如::
 
    >>> from fibo import fib, fib2
    >>> fib(500)
@@ -95,7 +119,11 @@ module directly into the importing module's symbol table.  For example::
 This does not introduce the module name from which the imports are taken in the
 local symbol table (so in the example, ``fibo`` is not defined).
 
+这种导入的方法将不会把被导入的模块的名称放在当前的字符表中（所以在这个例子里面，``fibo``这个名称是没有定义的）。
+
 There is even a variant to import all names that a module defines::
+
+这还有一种方法，可以一次性的把模块中的所有（函数，变量的）名称都导入到当前模块的字符表::
 
    >>> from fibo import *
    >>> fib(500)
@@ -105,6 +133,8 @@ This imports all names except those beginning with an underscore (``_``).
 In most cases Python programmers do not use this facility since it introduces 
 an unknown set of names into the interpreter, possibly hiding some things 
 you have already defined.
+
+这将把所有的名字都导入进来，但是那些由单一下划线（``_``）开头的名字不在此例。大多数情况，Python程序员是不使用这种方法的，他将会导入很多的未知的名称，很可能覆盖了已有的一些定义。
 
 
 .. _tut-modulesasscripts:
