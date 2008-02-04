@@ -576,7 +576,7 @@ support it, if they don't see a use for importing \* from their package.  For
 example, the file :file:`sounds/effects/__init__.py` could contain the following
 code::
 
-为了解决这个问题，只能烦劳包作者提供一个精确的包的索引了。导入语句遵循如下规则：如果包定义文件:file:`__init__.py`存在一个叫做``__all__``的列表变量，那么在使用``from package import *``的时候就把这个列表中的所有名字作为包内容导入。作为包的作者，可别忘了在更新包之后保证``__all__``也更新了啊。你当然可以选择就不这么做，你就不使用导入*这种用法，好吧，谁让你是老板呢。这里有一个例子，在:file:`sounds/effects/__init__.py`中包含如下代码::
+为了解决这个问题，只能烦劳包作者提供一个精确的包的索引了。导入语句遵循如下规则：如果包定义文件:file:`__init__.py`存在一个叫做``__all__``的列表变量，那么在使用``from package import *``的时候就把这个列表中的所有名字作为包内容导入。作为包的作者，可别忘了在更新包之后保证``__all__``也更新了啊。你说我就不这么做，我就不使用导入*这种用法，好吧，没问题，谁让你是老板呢。这里有一个例子，在:file:`sounds/effects/__init__.py`中包含如下代码::
 
    __all__ = ["echo", "surround", "reverse"]
 
