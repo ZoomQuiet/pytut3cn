@@ -1,25 +1,25 @@
 . _tut-errors:
 
 *********************
-Errors and Exceptions    ´íÎóºÍÒì³£	
+Errors and Exceptions    é”™è¯¯å’Œå¼‚å¸¸	
 *********************
 
 Until now error messages haven't been more than mentioned, but if you have tried
 out the examples you have probably seen some.  There are (at least) two
 distinguishable kinds of errors: *syntax errors* and *exceptions*.
 
-Ö±µ½ÏÖÔÚ£¬ÎÒÃÇ»¹Ã»ÓĞ¸ü¶àµÄÌá¼°´íÎóĞÅÏ¢£¬µ«ÊÇÈç¹ûÄãÕæµÄ³¢ÊÔÁËÇ°ÃæµÄÀı×Ó£¬Ò²ĞíÄã»á¼ûµ½Ò»Ğ©¡£ÕâÀï£¨ÖÁÉÙ£©ÓĞÁ½ÖÖ´íÎóºÜÈİÒ×±æÈÏ£º*Óï·¨´íÎó*ºÍ*Òì³£*¡£
+ç›´åˆ°ç°åœ¨ï¼Œæˆ‘ä»¬è¿˜æ²¡æœ‰æ›´å¤šçš„æåŠé”™è¯¯ä¿¡æ¯ï¼Œä½†æ˜¯å¦‚æœä½ çœŸçš„å°è¯•äº†å‰é¢çš„ä¾‹å­ï¼Œä¹Ÿè®¸ä½ ä¼šè§åˆ°ä¸€äº›ã€‚è¿™é‡Œï¼ˆè‡³å°‘ï¼‰æœ‰ä¸¤ç§é”™è¯¯å¾ˆå®¹æ˜“è¾¨è®¤ï¼š*è¯­æ³•é”™è¯¯*å’Œ*å¼‚å¸¸*ã€‚
 
 
 .. _tut-syntaxerrors:
 
-Syntax Errors    Óï·¨´íÎó
+Syntax Errors    è¯­æ³•é”™è¯¯
 =============
 
 Syntax errors, also known as parsing errors, are perhaps the most common kind of
 complaint you get while you are still learning Python::
 
-Óï·¨´íÎó£¬»òÕß³ÆÖ®Îª½âÎö´í£¬ÊÇÄãÔÚÑ§Ï° Python µÄ¹ı³ÌÖĞ×îÎŞ¿×²»ÈëµÄÒ»ÖÖÁË::
+è¯­æ³•é”™è¯¯ï¼Œæˆ–è€…ç§°ä¹‹ä¸ºè§£æé”™ï¼Œæ˜¯ä½ åœ¨å­¦ä¹  Python çš„è¿‡ç¨‹ä¸­æœ€æ— å­”ä¸å…¥çš„ä¸€ç§äº†::
 
    >>> while True print('Hello world')
      File "<stdin>", line 1, in ?
@@ -34,12 +34,12 @@ example, the error is detected at the function :func:`print`, since a colon
 (``':'``) is missing before it.  File name and line number are printed so you
 know where to look in case the input came from a script.
 
-Óï·¨·ÖÎöÆ÷Ö¸³öÁË³ö´íµÄÒ»ĞĞ£¬²¢ÇÒÔÚ×îÏÈÕÒµ½µÄ´íÎóµÄÎ»ÖÃ±ê¼ÇÁËÒ»¸öĞ¡Ğ¡µÄ'¼ıÍ·'¡£¼ıÍ·¿¿Ç°µÄÎ»ÖÃ£¬¾ÍÊÇ´íÎó·¢Éú£¨»òÕßÖÁÉÙÊÇ±»·¢ÏÖ£©µÄÎ»ÖÃ¡£Õâ¸öÀı×ÓÖĞ£¬º¯Êı :func:`print` ±»¼ì²éµ½ÓĞ´íÎó£¬ÊÇËüÇ°ÃæÈ±ÉÙÁËÒ»¸öÃ°ºÅ£¨``':'``£©¡£ÎÄ¼şÃûºÍĞĞºÅÒ»²¢¸ø³ö£¬ÕâÑù¾Í·½±ãµÄ»ñÖªÊÇÄÄÒ»¸ö½Å±¾µÄÎÊÌâÁË¡£
+è¯­æ³•åˆ†æå™¨æŒ‡å‡ºäº†å‡ºé”™çš„ä¸€è¡Œï¼Œå¹¶ä¸”åœ¨æœ€å…ˆæ‰¾åˆ°çš„é”™è¯¯çš„ä½ç½®æ ‡è®°äº†ä¸€ä¸ªå°å°çš„'ç®­å¤´'ã€‚ç®­å¤´é å‰çš„ä½ç½®ï¼Œå°±æ˜¯é”™è¯¯å‘ç”Ÿï¼ˆæˆ–è€…è‡³å°‘æ˜¯è¢«å‘ç°ï¼‰çš„ä½ç½®ã€‚è¿™ä¸ªä¾‹å­ä¸­ï¼Œå‡½æ•° :func:`print` è¢«æ£€æŸ¥åˆ°æœ‰é”™è¯¯ï¼Œæ˜¯å®ƒå‰é¢ç¼ºå°‘äº†ä¸€ä¸ªå†’å·ï¼ˆ``':'``ï¼‰ã€‚æ–‡ä»¶åå’Œè¡Œå·ä¸€å¹¶ç»™å‡ºï¼Œè¿™æ ·å°±æ–¹ä¾¿çš„è·çŸ¥æ˜¯å“ªä¸€ä¸ªè„šæœ¬çš„é—®é¢˜äº†ã€‚
 
 
 .. _tut-exceptions:
 
-Exceptions    Òì³£
+Exceptions    å¼‚å¸¸
 ==========
 
 Even if a statement or expression is syntactically correct, it may cause an
@@ -48,7 +48,7 @@ are called *exceptions* and are not unconditionally fatal: you will soon learn
 how to handle them in Python programs.  Most exceptions are not handled by
 programs, however, and result in error messages as shown here::
 
-¾ÍËãÒ»¸öÓï¾ä»ò±í´ïÊ½ÔÚÓï·¨ÉÏÊÇÕıÈ·µÄ£¬ÔÚÔËĞĞËüµÄÊ±ºò£¬Ò²ÓĞ¿ÉÄÜ·¢Éú´íÎó¡£ÔËĞĞÆÚ¼ì²âµ½µÄ´íÎó±»³ÆÎª*Òì³£*£¬³ÌĞò²¢²»»áÎŞÌõ¼şµÄ±Àµô£¬ÄãºÜ¿ì¾Í¿ÉÒÔÁË½âµ½ÔÚPythonÖĞÈçºÎ´¦ÀíËüÃÇÁË¡£´ó¶àÊıµÄÒì³£¶¼²»»á±»³ÌĞò´¦Àí£¬¶¼ÒÔ´íÎóĞÅÏ¢µÄĞÎÊ½Õ¹ÏÖÔÚÕâÀï::
+å°±ç®—ä¸€ä¸ªè¯­å¥æˆ–è¡¨è¾¾å¼åœ¨è¯­æ³•ä¸Šæ˜¯æ­£ç¡®çš„ï¼Œåœ¨è¿è¡Œå®ƒçš„æ—¶å€™ï¼Œä¹Ÿæœ‰å¯èƒ½å‘ç”Ÿé”™è¯¯ã€‚è¿è¡ŒæœŸæ£€æµ‹åˆ°çš„é”™è¯¯è¢«ç§°ä¸º*å¼‚å¸¸*ï¼Œç¨‹åºå¹¶ä¸ä¼šæ— æ¡ä»¶çš„å´©æ‰ï¼Œä½ å¾ˆå¿«å°±å¯ä»¥äº†è§£åˆ°åœ¨Pythonä¸­å¦‚ä½•å¤„ç†å®ƒä»¬äº†ã€‚å¤§å¤šæ•°çš„å¼‚å¸¸éƒ½ä¸ä¼šè¢«ç¨‹åºå¤„ç†ï¼Œéƒ½ä»¥é”™è¯¯ä¿¡æ¯çš„å½¢å¼å±•ç°åœ¨è¿™é‡Œ::
 
    >>> 10 * (1/0)
    Traceback (most recent call last):
@@ -71,26 +71,26 @@ that occurred.  This is true for all built-in exceptions, but need not be true
 for user-defined exceptions (although it is a useful convention). Standard
 exception names are built-in identifiers (not reserved keywords).
 
-´íÎóĞÅÏ¢µÄ×îºóÒ»ĞĞ¸æËßÄãµ½µ×·¢ÉúÁËÊ²Ã´¡£Òì³£ÒÔ²»Í¬µÄÀàĞÍ³öÏÖ£¬ÕâĞ©ÀàĞÍ¶¼×÷ÎªĞÅÏ¢µÄÒ»²¿·Ö´òÓ¡³öÀ´: Àı×ÓÖĞµÄÀàĞÍÓĞ :exc:`ZeroDivisionError`£¬:exc:`NameError` ºÍ :exc:`TypeError`¡£±»´òÓ¡³öµÄÒì³£ÀàĞÍµÄ×Ö·û´®¾ÍÊÇÄÚÖÃµÄÒì³£µÄÃû³Æ¡£ÕâÌõ¹æÔòÊÊÓÃÓÚËùÓĞµÄÄÚÖÃÒì³££¬µ«¶ÔÓÃ»§¶¨ÒåµÄÒì³£²¢²»Ç¿ÖÆ£¨ËäÈ»ÕâÊÇ·Ç³£ÓĞÓÃµÄ·½·¨£©¡£±ê×¼µÄÒì³£Ãû³ÆÊÇÄÚÖÃµÄ±êÊ¶·û£¨Ã»ÓĞ±£Áô¹Ø¼ü×Ö£©¡£
+é”™è¯¯ä¿¡æ¯çš„æœ€åä¸€è¡Œå‘Šè¯‰ä½ åˆ°åº•å‘ç”Ÿäº†ä»€ä¹ˆã€‚å¼‚å¸¸ä»¥ä¸åŒçš„ç±»å‹å‡ºç°ï¼Œè¿™äº›ç±»å‹éƒ½ä½œä¸ºä¿¡æ¯çš„ä¸€éƒ¨åˆ†æ‰“å°å‡ºæ¥: ä¾‹å­ä¸­çš„ç±»å‹æœ‰ :exc:`ZeroDivisionError`ï¼Œ:exc:`NameError` å’Œ :exc:`TypeError`ã€‚è¢«æ‰“å°å‡ºçš„å¼‚å¸¸ç±»å‹çš„å­—ç¬¦ä¸²å°±æ˜¯å†…ç½®çš„å¼‚å¸¸çš„åç§°ã€‚è¿™æ¡è§„åˆ™é€‚ç”¨äºæ‰€æœ‰çš„å†…ç½®å¼‚å¸¸ï¼Œä½†å¯¹ç”¨æˆ·å®šä¹‰çš„å¼‚å¸¸å¹¶ä¸å¼ºåˆ¶ï¼ˆè™½ç„¶è¿™æ˜¯éå¸¸æœ‰ç”¨çš„æ–¹æ³•ï¼‰ã€‚æ ‡å‡†çš„å¼‚å¸¸åç§°æ˜¯å†…ç½®çš„æ ‡è¯†ç¬¦ï¼ˆæ²¡æœ‰ä¿ç•™å…³é”®å­—ï¼‰ã€‚
 
 The rest of the line provides detail based on the type of exception and what
 caused it.
 
-ÕâÒ»ĞĞ×îºóÒ»²¿·ÖÃèÊöÁËÒì³£µÄÏêÏ¸ÄÚÈİºÍ·¢ÉúµÄÔ­Òò¡£
+è¿™ä¸€è¡Œæœ€åä¸€éƒ¨åˆ†æè¿°äº†å¼‚å¸¸çš„è¯¦ç»†å†…å®¹å’Œå‘ç”Ÿçš„åŸå› ã€‚
 
 The preceding part of the error message shows the context where the exception
 happened, in the form of a stack traceback. In general it contains a stack
 traceback listing source lines; however, it will not display lines read from
 standard input.
 
-´íÎóĞÅÏ¢µÄÇ°Ãæ²¿·ÖÏÔÊ¾ÁËÒì³£·¢ÉúµÄÉÏÏÂÎÄ£¬²¢ÒÔµ÷ÓÃÕ»µÄĞÎÊ½ÏÔÊ¾¾ßÌåĞÅÏ¢¡£Í¨³£Ëü°üº¬µ÷ÓÃÕ»ÀïµÄÃ¿Ò»¸öÔ´´úÂëĞĞ£¬È»¶ø£¬À´×Ô±ê×¼ÊäÈëµÄÔ´Âë²»»áÏÔÊ¾³öÀ´¡£
+é”™è¯¯ä¿¡æ¯çš„å‰é¢éƒ¨åˆ†æ˜¾ç¤ºäº†å¼‚å¸¸å‘ç”Ÿçš„ä¸Šä¸‹æ–‡ï¼Œå¹¶ä»¥è°ƒç”¨æ ˆçš„å½¢å¼æ˜¾ç¤ºå…·ä½“ä¿¡æ¯ã€‚é€šå¸¸å®ƒåŒ…å«è°ƒç”¨æ ˆé‡Œçš„æ¯ä¸€ä¸ªæºä»£ç è¡Œï¼Œç„¶è€Œï¼Œæ¥è‡ªæ ‡å‡†è¾“å…¥çš„æºç ä¸ä¼šæ˜¾ç¤ºå‡ºæ¥ã€‚
 
 :ref:`bltin-exceptions` lists the built-in exceptions and their meanings.
 
 
 .. _tut-handling:
 
-Handling Exceptions    Òì³£´¦Àí
+Handling Exceptions    å¼‚å¸¸å¤„ç†
 ===================
 
 It is possible to write programs that handle selected exceptions. Look at the
@@ -99,7 +99,7 @@ entered, but allows the user to interrupt the program (using :kbd:`Control-C` or
 whatever the operating system supports); note that a user-generated interruption
 is signalled by raising the :exc:`KeyboardInterrupt` exception. ::
 
-¿ÉÒÔÍ¨¹ı±à³ÌÀ´´¦ÀíÑ¡ÖĞµÄÒì³£¡£ÏÂÃæµÄÀı×ÓÈÃÓÃ»§ÊäÈëÒ»¸öºÏ·¨µÄÕûÊı£¬µ«ÊÇÔÊĞíÓÃ»§ÖĞ¶ÏÕâ¸ö³ÌĞò£¨Ê¹ÓÃ :kbd:`Control-C` »òÕß²Ù×÷ÏµÍ³Ìá¹©µÄ·½·¨£©¡£ÓÃ»§ÖĞ¶ÏµÄĞÅÏ¢»áÒı·¢Ò»¸ö :exc:`KeyboardInterrupt` Òì³£¡£ ::
+å¯ä»¥é€šè¿‡ç¼–ç¨‹æ¥å¤„ç†é€‰ä¸­çš„å¼‚å¸¸ã€‚ä¸‹é¢çš„ä¾‹å­è®©ç”¨æˆ·è¾“å…¥ä¸€ä¸ªåˆæ³•çš„æ•´æ•°ï¼Œä½†æ˜¯å…è®¸ç”¨æˆ·ä¸­æ–­è¿™ä¸ªç¨‹åºï¼ˆä½¿ç”¨ :kbd:`Control-C` æˆ–è€…æ“ä½œç³»ç»Ÿæä¾›çš„æ–¹æ³•ï¼‰ã€‚ç”¨æˆ·ä¸­æ–­çš„ä¿¡æ¯ä¼šå¼•å‘ä¸€ä¸ª :exc:`KeyboardInterrupt` å¼‚å¸¸ã€‚ ::
 
    >>> while True:
    ...     try:
@@ -111,31 +111,31 @@ is signalled by raising the :exc:`KeyboardInterrupt` exception. ::
 
 The :keyword:`try` statement works as follows.
 
-:keyword:`try`Óï¾ä°´ÕÕÈçÏÂ·½Ê½¹¤×÷¡£
+:keyword:`try`è¯­å¥æŒ‰ç…§å¦‚ä¸‹æ–¹å¼å·¥ä½œã€‚
 
 * First, the *try clause* (the statement(s) between the :keyword:`try` and
   :keyword:`except` keywords) is executed.
 
-* Ê×ÏÈ£¬Ö´ĞĞ*try×Ó¾ä*£¨ÔÚ¹Ø¼ü×Ö:keyword:`try`ºÍ¹Ø¼ü×Ö:keyword:`except`Ö®¼äµÄÓï¾ä£©
+* é¦–å…ˆï¼Œæ‰§è¡Œ*tryå­å¥*ï¼ˆåœ¨å…³é”®å­—:keyword:`try`å’Œå…³é”®å­—:keyword:`except`ä¹‹é—´çš„è¯­å¥ï¼‰
 
 * If no exception occurs, the *except clause* is skipped and execution of the
   :keyword:`try` statement is finished.
   
-* Èç¹ûÃ»ÓĞÒì³£·¢Éú£¬ºöÂÔ*except×Ó¾ä*£¬*try×Ó¾ä*Ö´ĞĞÍê±Ï¡£
+* å¦‚æœæ²¡æœ‰å¼‚å¸¸å‘ç”Ÿï¼Œå¿½ç•¥*exceptå­å¥*ï¼Œ*tryå­å¥*æ‰§è¡Œå®Œæ¯•ã€‚
 
 * If an exception occurs during execution of the try clause, the rest of the
   clause is skipped.  Then if its type matches the exception named after the
   :keyword:`except` keyword, the except clause is executed, and then execution
   continues after the :keyword:`try` statement.
   
-* Èç¹ûÔÚÖ´ĞĞtry×Ó¾äµÄ¹ı³ÌÖĞ·¢ÉúÁËÒì³££¬ÄÇÃ´try×Ó¾äÓàÏÂµÄ²¿·Ö½«±»ºöÂÔ¡£Èç¹ûÒì³£µÄÀàĞÍºÍ :keyword:`except` Ö®ºóµÄÃû³ÆÏà·û£¬ÄÇÃ´¶ÔÓ¦µÄexcept×Ó¾ä½«±»Ö´ĞĞ¡£×îºóÖ´ĞĞ :keyword:`try` Óï¾äÖ®ºóµÄ´úÂë¡£
+* å¦‚æœåœ¨æ‰§è¡Œtryå­å¥çš„è¿‡ç¨‹ä¸­å‘ç”Ÿäº†å¼‚å¸¸ï¼Œé‚£ä¹ˆtryå­å¥ä½™ä¸‹çš„éƒ¨åˆ†å°†è¢«å¿½ç•¥ã€‚å¦‚æœå¼‚å¸¸çš„ç±»å‹å’Œ :keyword:`except` ä¹‹åçš„åç§°ç›¸ç¬¦ï¼Œé‚£ä¹ˆå¯¹åº”çš„exceptå­å¥å°†è¢«æ‰§è¡Œã€‚æœ€åæ‰§è¡Œ :keyword:`try` è¯­å¥ä¹‹åçš„ä»£ç ã€‚
 
 * If an exception occurs which does not match the exception named in the except
   clause, it is passed on to outer :keyword:`try` statements; if no handler is
   found, it is an *unhandled exception* and execution stops with a message as
   shown above.
 
-* Èç¹ûÒ»¸öÒì³£Ã»ÓĞÓëÈÎºÎµÄexceptÆ¥Åä£¬ÄÇÃ´Õâ¸öÒì³£½«»á´«µİ¸øÉÏ²ãµÄ:keyword:`try`ÖĞ¡£Èç¹û×îÖÕÈÔÈ»Ã»ÓĞÕÒµ½ÄÜ¹»´¦ÀíÕâ¸öÒì³£µÄ´úÂë£¬ÄÇÃ´Ëû¾Í³ÉÁËÒ»¸ö*Î´´¦ÀíÒì³£*£¬Ö´ĞĞ±»ÖĞ¶Ï£¬ÏÔÊ¾ÌáÊ¾ĞÅÏ¢¡£
+* å¦‚æœä¸€ä¸ªå¼‚å¸¸æ²¡æœ‰ä¸ä»»ä½•çš„exceptåŒ¹é…ï¼Œé‚£ä¹ˆè¿™ä¸ªå¼‚å¸¸å°†ä¼šä¼ é€’ç»™ä¸Šå±‚çš„:keyword:`try`ä¸­ã€‚å¦‚æœæœ€ç»ˆä»ç„¶æ²¡æœ‰æ‰¾åˆ°èƒ½å¤Ÿå¤„ç†è¿™ä¸ªå¼‚å¸¸çš„ä»£ç ï¼Œé‚£ä¹ˆä»–å°±æˆäº†ä¸€ä¸ª*æœªå¤„ç†å¼‚å¸¸*ï¼Œæ‰§è¡Œè¢«ä¸­æ–­ï¼Œæ˜¾ç¤ºæç¤ºä¿¡æ¯ã€‚
 
 A :keyword:`try` statement may have more than one except clause, to specify
 handlers for different exceptions.  At most one handler will be executed.
@@ -143,7 +143,7 @@ Handlers only handle exceptions that occur in the corresponding try clause, not
 in other handlers of the same :keyword:`try` statement.  An except clause may
 name multiple exceptions as a parenthesized tuple, for example::
 
-Ò»¸ö :keyword:`try` Óï¾ä¿ÉÄÜ°üº¬¶à¸öexcept×Ó¾ä£¬·Ö±ğÀ´´¦Àí²»Í¬µÄÌØ¶¨µÄÒì³£¡£×î¶àÖ»ÓĞÒ»¸ö·ÖÖ§»á±»Ö´ĞĞ¡£´¦Àí³ÌĞò½«Ö»Õë¶Ô¶ÔÓ¦µÄtry×Ó¾äÖĞµÄÒì³£½øĞĞ´¦Àí£¬¶ø²»ÊÇÆäËûµÄ :keyrowd:`try` µÄ´¦Àí³ÌĞòÖĞµÄÒì³£¡£Ò»¸öexcept×Ó¾ä¿ÉÒÔÍ¬Ê±´¦Àí¶à¸öÒì³££¬ÕâĞ©Òì³£½«±»·ÅÔÚÒ»¸öÀ¨ºÅÀï³ÉÎªÒ»¸öÔª×é£¬ÀıÈç::
+ä¸€ä¸ª :keyword:`try` è¯­å¥å¯èƒ½åŒ…å«å¤šä¸ªexceptå­å¥ï¼Œåˆ†åˆ«æ¥å¤„ç†ä¸åŒçš„ç‰¹å®šçš„å¼‚å¸¸ã€‚æœ€å¤šåªæœ‰ä¸€ä¸ªåˆ†æ”¯ä¼šè¢«æ‰§è¡Œã€‚å¤„ç†ç¨‹åºå°†åªé’ˆå¯¹å¯¹åº”çš„tryå­å¥ä¸­çš„å¼‚å¸¸è¿›è¡Œå¤„ç†ï¼Œè€Œä¸æ˜¯å…¶ä»–çš„ :keyrowd:`try` çš„å¤„ç†ç¨‹åºä¸­çš„å¼‚å¸¸ã€‚ä¸€ä¸ªexceptå­å¥å¯ä»¥åŒæ—¶å¤„ç†å¤šä¸ªå¼‚å¸¸ï¼Œè¿™äº›å¼‚å¸¸å°†è¢«æ”¾åœ¨ä¸€ä¸ªæ‹¬å·é‡Œæˆä¸ºä¸€ä¸ªå…ƒç»„ï¼Œä¾‹å¦‚::
 
    ... except (RuntimeError, TypeError, NameError):
    ...     pass
@@ -153,7 +153,7 @@ Use this with extreme caution, since it is easy to mask a real programming error
 in this way!  It can also be used to print an error message and then re-raise
 the exception (allowing a caller to handle the exception as well)::
 
-×îºóÒ»¸öexcept×Ó¾ä¿ÉÒÔºöÂÔÒì³£µÄÃû³Æ£¬Ëü½«±»µ±×÷Í¨Åä·ûÊ¹ÓÃ¡£ÕâÖÖ·½·¨ÒªÉ÷ÓÃ£¡¸ã²»ºÃÄã»á°Ñ³ÌĞòÖĞÕæÕıµÄ´íÎóÒş²ØµÄÎŞÓ°ÎŞ×Ù¡£Äã¿ÉÒÔÊ¹ÓÃÕâÖÖ·½·¨´òÓ¡Ò»¸ö´íÎóĞÅÏ¢£¬È»ºóÔÙ´Î°ÑÒì³£Å×³ö£¨¾ÍÈÃµ÷ÓÃÕßÈ¥´¦ÀíÕâ¸öÌÌÊÖµÄÉ½Óó°É£©::
+æœ€åä¸€ä¸ªexceptå­å¥å¯ä»¥å¿½ç•¥å¼‚å¸¸çš„åç§°ï¼Œå®ƒå°†è¢«å½“ä½œé€šé…ç¬¦ä½¿ç”¨ã€‚è¿™ç§æ–¹æ³•è¦æ…ç”¨ï¼æä¸å¥½ä½ ä¼šæŠŠç¨‹åºä¸­çœŸæ­£çš„é”™è¯¯éšè—çš„æ— å½±æ— è¸ªã€‚ä½ å¯ä»¥ä½¿ç”¨è¿™ç§æ–¹æ³•æ‰“å°ä¸€ä¸ªé”™è¯¯ä¿¡æ¯ï¼Œç„¶åå†æ¬¡æŠŠå¼‚å¸¸æŠ›å‡ºï¼ˆå°±è®©è°ƒç”¨è€…å»å¤„ç†è¿™ä¸ªçƒ«æ‰‹çš„å±±èŠ‹å§ï¼‰::
 
    import sys
 
@@ -174,7 +174,7 @@ clause*, which, when present, must follow all except clauses.  It is useful for
 code that must be executed if the try clause does not raise an exception.  For
 example::
 
-:keyword:`try` ... :keyword:`except`Óï¾ä»¹ÓĞÒ»¸ö¿ÉÑ¡µÄ*else×Ó¾ä*£¬Èç¹ûÊ¹ÓÃÕâ¸ö×Ó¾ä£¬ÄÇÃ´±ØĞë·ÅÔÚËùÓĞµÄexcept×Ó¾äÖ®ºó¡£Õâ¸ö×Ó¾ä½«ÔÚtry×Ó¾äÃ»ÓĞ·¢ÉúÈÎºÎÒì³£µÄÊ±ºòÖ´ĞĞ¡£ÀıÈç::
+:keyword:`try` ... :keyword:`except`è¯­å¥è¿˜æœ‰ä¸€ä¸ªå¯é€‰çš„*elseå­å¥*ï¼Œå¦‚æœä½¿ç”¨è¿™ä¸ªå­å¥ï¼Œé‚£ä¹ˆå¿…é¡»æ”¾åœ¨æ‰€æœ‰çš„exceptå­å¥ä¹‹åã€‚è¿™ä¸ªå­å¥å°†åœ¨tryå­å¥æ²¡æœ‰å‘ç”Ÿä»»ä½•å¼‚å¸¸çš„æ—¶å€™æ‰§è¡Œã€‚ä¾‹å¦‚::
 
    for arg in sys.argv[1:]:
        try:
@@ -190,13 +190,13 @@ the :keyword:`try` clause because it avoids accidentally catching an exception
 that wasn't raised by the code being protected by the :keyword:`try` ...
 :keyword:`except` statement.
 
-Ê¹ÓÃ :keyword:`else` ×Ó¾ä±È°ÑËùÓĞµÄÓï¾ä¶¼·ÅÔÚ :keyword:`try` ×Ó¾äÀïÃæÒªºÃ£¬ÕâÑù¿ÉÒÔ±ÜÃâÒ»Ğ©ÒâÏë²»µ½µÄ¡¢¶øexceptÓÖÃ»ÓĞ²¶»ñµÄÒì³£¡£
+ä½¿ç”¨ :keyword:`else` å­å¥æ¯”æŠŠæ‰€æœ‰çš„è¯­å¥éƒ½æ”¾åœ¨ :keyword:`try` å­å¥é‡Œé¢è¦å¥½ï¼Œè¿™æ ·å¯ä»¥é¿å…ä¸€äº›æ„æƒ³ä¸åˆ°çš„ã€è€Œexceptåˆæ²¡æœ‰æ•è·çš„å¼‚å¸¸ã€‚
 
 When an exception occurs, it may have an associated value, also known as the
 exception's *argument*. The presence and type of the argument depend on the
 exception type.
 
-µ±·¢ÉúÁËÒ»¸öÒì³££¬¿ÉÄÜ°éËæ×Å»áÓĞÏà¹ØÊı¾İ£¬Ò²¾ÍÊÇËùÎ½µÄÒì³£µÄ*²ÎÊı*¡£ÊÇ·ñÓĞÕâ¸ö²ÎÊı£¬ÒÔ¼°ËüµÄÀàĞÍÈ¡¾öÓÚÒì³£µÄÀàĞÍ¡£
+å½“å‘ç”Ÿäº†ä¸€ä¸ªå¼‚å¸¸ï¼Œå¯èƒ½ä¼´éšç€ä¼šæœ‰ç›¸å…³æ•°æ®ï¼Œä¹Ÿå°±æ˜¯æ‰€è°“çš„å¼‚å¸¸çš„*å‚æ•°*ã€‚æ˜¯å¦æœ‰è¿™ä¸ªå‚æ•°ï¼Œä»¥åŠå®ƒçš„ç±»å‹å–å†³äºå¼‚å¸¸çš„ç±»å‹ã€‚
 
 The except clause may specify a variable after the exception name (or tuple).
 The variable is bound to an exception instance with the arguments stored in
@@ -204,7 +204,7 @@ The variable is bound to an exception instance with the arguments stored in
 :meth:`__getitem__` and :meth:`__str__` so the arguments can be accessed or
 printed directly without having to reference ``.args``.
 
-exceptÓï¾ä¿ÉÒÔÔÚÒì³£Ãû×Ö£¨»òÔª×é£©Ö®ºóÖ¸¶¨Ò»¸ö±äÁ¿¡£Õâ¸ö±äÁ¿°ó¶¨Òì³£ÊµÀı£¬Òì³£µÄ²ÎÊı´æ·ÅÔÚ ``instance.args`` ÀïÃæ¡£ÎªÁË·½±ãÊ¹ÓÃ£¬Õâ¸öÊµÀı¶¨ÒåÁË·½·¨ :meth:`__getitem__` ºÍ :meth:`__str__`£¬ËùÒÔÕâ¸ö²ÎÊı¿ÉÒÔÖ±½ÓÓÃÓÚ¸³Öµ»ò´òÓ¡£¬¶ø²»±ØÂé·³µÄÊ¹ÓÃ ``.args``¡£
+exceptè¯­å¥å¯ä»¥åœ¨å¼‚å¸¸åå­—ï¼ˆæˆ–å…ƒç»„ï¼‰ä¹‹åæŒ‡å®šä¸€ä¸ªå˜é‡ã€‚è¿™ä¸ªå˜é‡ç»‘å®šå¼‚å¸¸å®ä¾‹ï¼Œå¼‚å¸¸çš„å‚æ•°å­˜æ”¾åœ¨ ``instance.args`` é‡Œé¢ã€‚ä¸ºäº†æ–¹ä¾¿ä½¿ç”¨ï¼Œè¿™ä¸ªå®ä¾‹å®šä¹‰äº†æ–¹æ³• :meth:`__getitem__` å’Œ :meth:`__str__`ï¼Œæ‰€ä»¥è¿™ä¸ªå‚æ•°å¯ä»¥ç›´æ¥ç”¨äºèµ‹å€¼æˆ–æ‰“å°ï¼Œè€Œä¸å¿…éº»çƒ¦çš„ä½¿ç”¨ ``.args``ã€‚
 
 But use of ``.args`` is discouraged.  Instead, the preferred use is to pass a
 single argument to an exception (which can be a tuple if multiple arguments are
@@ -212,7 +212,7 @@ needed) and have it bound to the ``message`` attribute.  One may also
 instantiate an exception first before raising it and add any attributes to it as
 desired. ::
 
-µ«ÊÇ²¢²»ÍÆ¼öÊ¹ÓÃ ``.args``¡£È¡¶ø´úÖ®µÄÊÇ£¬ÕâÀï»¶Ó­¸øÒì³£´«µİÒ»¸öµ¥¶ÀµÄ²ÎÊı£¨Èç¹û¶à¸ö²ÎÊı£¬Ê¹ÓÃÔª×éÒ²¿ÉÒÔ£©£¬°ÑËü°ó¶¨µ½ ``message`` ÊôĞÔÉÏ¡£Ò»µ©·¢ÉúÒì³££¬Ëü½«ÔÚÅ×³öÇ°°ó¶¨ËùÓĞÖ¸¶¨µÄÊôĞÔ::
+ä½†æ˜¯å¹¶ä¸æ¨èä½¿ç”¨ ``.args``ã€‚å–è€Œä»£ä¹‹çš„æ˜¯ï¼Œè¿™é‡Œæ¬¢è¿ç»™å¼‚å¸¸ä¼ é€’ä¸€ä¸ªå•ç‹¬çš„å‚æ•°ï¼ˆå¦‚æœå¤šä¸ªå‚æ•°ï¼Œä½¿ç”¨å…ƒç»„ä¹Ÿå¯ä»¥ï¼‰ï¼ŒæŠŠå®ƒç»‘å®šåˆ° ``message`` å±æ€§ä¸Šã€‚ä¸€æ—¦å‘ç”Ÿå¼‚å¸¸ï¼Œå®ƒå°†åœ¨æŠ›å‡ºå‰ç»‘å®šæ‰€æœ‰æŒ‡å®šçš„å±æ€§::
 
    >>> try:
    ...    raise Exception('spam', 'eggs')
@@ -233,13 +233,13 @@ desired. ::
 If an exception has an argument, it is printed as the last part ('detail') of
 the message for unhandled exceptions.
 
-¶ÔÓÚÎ´´¦ÀíµÄÒì³££¬Èç¹ûËûº¬ÓĞ²ÎÊı£¬ÄÇÃ´Ëû¾Í»á±»µ±×÷ÏêÏ¸ĞÅÏ¢´òÓ¡³öÀ´¡£
+å¯¹äºæœªå¤„ç†çš„å¼‚å¸¸ï¼Œå¦‚æœä»–å«æœ‰å‚æ•°ï¼Œé‚£ä¹ˆä»–å°±ä¼šè¢«å½“ä½œè¯¦ç»†ä¿¡æ¯æ‰“å°å‡ºæ¥ã€‚
 
 Exception handlers don't just handle exceptions if they occur immediately in the
 try clause, but also if they occur inside functions that are called (even
 indirectly) in the try clause. For example::
 
-Òì³£´¦Àí²¢²»½ö½ö´¦ÀíÄÇĞ©Ö±½Ó·¢ÉúÔÚtry×Ó¾äÖĞµÄÒì³££¬¶øÇÒ»¹ÄÜ´¦Àí×Ó¾äÖĞµ÷ÓÃµÄº¯Êı£¨ÉõÖÁ¼ä½Óµ÷ÓÃµÄº¯Êı£©ÀïÅ×³öµÄÒì³£¡£ÀıÈç::
+å¼‚å¸¸å¤„ç†å¹¶ä¸ä»…ä»…å¤„ç†é‚£äº›ç›´æ¥å‘ç”Ÿåœ¨tryå­å¥ä¸­çš„å¼‚å¸¸ï¼Œè€Œä¸”è¿˜èƒ½å¤„ç†å­å¥ä¸­è°ƒç”¨çš„å‡½æ•°ï¼ˆç”šè‡³é—´æ¥è°ƒç”¨çš„å‡½æ•°ï¼‰é‡ŒæŠ›å‡ºçš„å¼‚å¸¸ã€‚ä¾‹å¦‚::
 
    >>> def this_fails():
    ...     x = 1/0
@@ -254,13 +254,13 @@ indirectly) in the try clause. For example::
 
 .. _tut-raising:
 
-Raising Exceptions    Å×³öÒì³£
+Raising Exceptions    æŠ›å‡ºå¼‚å¸¸
 ==================
 
 The :keyword:`raise` statement allows the programmer to force a specified
 exception to occur. For example::
 
-:keyword:`raise` Óï¾äÔÊĞí³ÌĞòÔ±Ç¿ÖÆÅ×³öÒ»¸öÖ¸¶¨µÄÒì³£¡£ÀıÈç::
+:keyword:`raise` è¯­å¥å…è®¸ç¨‹åºå‘˜å¼ºåˆ¶æŠ›å‡ºä¸€ä¸ªæŒ‡å®šçš„å¼‚å¸¸ã€‚ä¾‹å¦‚::
 
    >>> raise NameError('HiThere')
    Traceback (most recent call last):
@@ -271,13 +271,13 @@ The sole argument to :keyword:`raise` indicates the exception to be raised.
 This must be either an exception instance or an exception class (a class that
 derives from :class:`Exception`).
 
-:keyword:`raise` Î¨Ò»µÄÒ»¸ö²ÎÊıÖ¸¶¨ÁËÒª±»Å×³öµÄÒì³£¡£Ëü±ØĞëÊÇÒ»¸öÒì³£µÄÊµÀı»òÕßÊÇÒì³£µÄÀà£¨Ò²¾ÍÊÇ :class:`Exception` µÄ×ÓÀà£©
+:keyword:`raise` å”¯ä¸€çš„ä¸€ä¸ªå‚æ•°æŒ‡å®šäº†è¦è¢«æŠ›å‡ºçš„å¼‚å¸¸ã€‚å®ƒå¿…é¡»æ˜¯ä¸€ä¸ªå¼‚å¸¸çš„å®ä¾‹æˆ–è€…æ˜¯å¼‚å¸¸çš„ç±»ï¼ˆä¹Ÿå°±æ˜¯ :class:`Exception` çš„å­ç±»ï¼‰
 
 If you need to determine whether an exception was raised but don't intend to
 handle it, a simpler form of the :keyword:`raise` statement allows you to
 re-raise the exception::
 
-Èç¹ûÄãÖ»ÏëÖªµÀÕâÊÇ·ñÅ×³öÁËÒ»¸öÒì³££¬²¢²»ÏëÈ¥´¦ÀíËü£¬ÄÇÃ´Ò»¸ö¼òµ¥µÄ :keyword:`raise` Óï¾ä¾Í¿ÉÒÔÔÙ´Î°ÑËüÅ×³ö¡£
+å¦‚æœä½ åªæƒ³çŸ¥é“è¿™æ˜¯å¦æŠ›å‡ºäº†ä¸€ä¸ªå¼‚å¸¸ï¼Œå¹¶ä¸æƒ³å»å¤„ç†å®ƒï¼Œé‚£ä¹ˆä¸€ä¸ªç®€å•çš„ :keyword:`raise` è¯­å¥å°±å¯ä»¥å†æ¬¡æŠŠå®ƒæŠ›å‡ºã€‚
 
    >>> try:
    ...     raise NameError('HiThere')
@@ -293,14 +293,14 @@ re-raise the exception::
 
 .. _tut-userexceptions:
 
-User-defined Exceptions    ÓÃ»§¶¨ÒåÒì³£
+User-defined Exceptions    ç”¨æˆ·å®šä¹‰å¼‚å¸¸
 =======================
 
 Programs may name their own exceptions by creating a new exception class.
 Exceptions should typically be derived from the :exc:`Exception` class, either
 directly or indirectly.  For example::
 
-´´½¨Ò»¸öĞÂµÄexceptionÀà£¬Äã¾ÍÓµÓĞÁËÒ»¸ö×Ô¼ºµÄÒì³£¡£Òì³£Ó¦¸Ã¼Ì³Ğ×Ô :exc:`Exception` Àà£¬»òÕßÖ±½Ó¼Ì³Ğ£¬»òÕß¼ä½Ó¼Ì³Ğ¡£ÀıÈç::
+åˆ›å»ºä¸€ä¸ªæ–°çš„exceptionç±»ï¼Œä½ å°±æ‹¥æœ‰äº†ä¸€ä¸ªè‡ªå·±çš„å¼‚å¸¸ã€‚å¼‚å¸¸åº”è¯¥ç»§æ‰¿è‡ª :exc:`Exception` ç±»ï¼Œæˆ–è€…ç›´æ¥ç»§æ‰¿ï¼Œæˆ–è€…é—´æ¥ç»§æ‰¿ã€‚ä¾‹å¦‚::
 
    >>> class MyError(Exception):
    ...     def __init__(self, value):
@@ -323,7 +323,7 @@ In this example, the default :meth:`__init__` of :class:`Exception` has been
 overridden.  The new behavior simply creates the *value* attribute.  This
 replaces the default behavior of creating the *args* attribute.
 
-ÔÚÕâ¸öÀı×ÓÖĞ£¬Àà :class:`Exception` Ä¬ÈÏµÄ :meth:`__init__` ±»¸²¸Ç£¬±»Ìæ»»ÎªÖ»ÊÇ¼òµ¥µÄ´´½¨Ò»¸ö*value*ÊôĞÔ¡£Ìæ»»ÁËÔ­ÏÈµÄĞèÒª´´½¨*args*ÊôĞÔµÄĞĞÎª¡£
+åœ¨è¿™ä¸ªä¾‹å­ä¸­ï¼Œç±» :class:`Exception` é»˜è®¤çš„ :meth:`__init__` è¢«è¦†ç›–ï¼Œè¢«æ›¿æ¢ä¸ºåªæ˜¯ç®€å•çš„åˆ›å»ºä¸€ä¸ª*value*å±æ€§ã€‚æ›¿æ¢äº†åŸå…ˆçš„éœ€è¦åˆ›å»º*args*å±æ€§çš„è¡Œä¸ºã€‚
 
 Exception classes can be defined which do anything any other class can do, but
 are usually kept simple, often only offering a number of attributes that allow
@@ -332,7 +332,7 @@ creating a module that can raise several distinct errors, a common practice is
 to create a base class for exceptions defined by that module, and subclass that
 to create specific exception classes for different error conditions::
 
-Òì³£µÄÀà¿ÉÒÔÏñÆäËûµÄÀàÒ»Ñù×öÈÎºÎÊÂÇé£¬µ«ÊÇÍ¨³£¶¼»á±È½Ï¼òµ¥£¬Ö»Ìá¹©Ò»Ğ©´íÎóÏà¹ØµÄÊôĞÔ£¬²¢ÇÒÔÊĞí´¦ÀíÒì³£µÄ´úÂë·½±ãµÄ»ñÈ¡ÕâĞ©ĞÅÏ¢¡£µ±´´½¨Ò»¸öÄ£¿éÓĞ¿ÉÄÜÅ×³ö¶àÖÖ²»Í¬µÄÒì³£Ê±£¬Ò»ÖÖÍ¨³£µÄ×ö·¨ÊÇÎªÕâ¸ö°ü½¨Á¢Ò»¸ö»ù´¡Òì³£Àà£¬È»ºó»ùÓÚÕâ¸ö»ù´¡ÀàÎª²»Í¬µÄ´íÎóÇé¿ö´´½¨²»Í¬µÄ×ÓÀà¡£
+å¼‚å¸¸çš„ç±»å¯ä»¥åƒå…¶ä»–çš„ç±»ä¸€æ ·åšä»»ä½•äº‹æƒ…ï¼Œä½†æ˜¯é€šå¸¸éƒ½ä¼šæ¯”è¾ƒç®€å•ï¼Œåªæä¾›ä¸€äº›é”™è¯¯ç›¸å…³çš„å±æ€§ï¼Œå¹¶ä¸”å…è®¸å¤„ç†å¼‚å¸¸çš„ä»£ç æ–¹ä¾¿çš„è·å–è¿™äº›ä¿¡æ¯ã€‚å½“åˆ›å»ºä¸€ä¸ªæ¨¡å—æœ‰å¯èƒ½æŠ›å‡ºå¤šç§ä¸åŒçš„å¼‚å¸¸æ—¶ï¼Œä¸€ç§é€šå¸¸çš„åšæ³•æ˜¯ä¸ºè¿™ä¸ªåŒ…å»ºç«‹ä¸€ä¸ªåŸºç¡€å¼‚å¸¸ç±»ï¼Œç„¶ååŸºäºè¿™ä¸ªåŸºç¡€ç±»ä¸ºä¸åŒçš„é”™è¯¯æƒ…å†µåˆ›å»ºä¸åŒçš„å­ç±»ã€‚
 
    class Error(Exception):
        """Base class for exceptions in this module."""
@@ -368,24 +368,24 @@ to create specific exception classes for different error conditions::
 Most exceptions are defined with names that end in "Error," similar to the
 naming of the standard exceptions.
 
-´ó¶àÊıµÄÒì³£µÄÃû×Ö¶¼ÒÔ¡°Error¡±½áÎ²£¬¾Í¸ú±ê×¼µÄÒì³£ÃüÃûÒ»Ñù¡£
+å¤§å¤šæ•°çš„å¼‚å¸¸çš„åå­—éƒ½ä»¥â€œErrorâ€ç»“å°¾ï¼Œå°±è·Ÿæ ‡å‡†çš„å¼‚å¸¸å‘½åä¸€æ ·ã€‚
 
 Many standard modules define their own exceptions to report errors that may
 occur in functions they define.  More information on classes is presented in
 chapter :ref:`tut-classes`.
 
-´ó¶àÊıµÄ±ê×¼°üÎªÁËÃèÊö×Ô¼ºµÄ´íÎó£¬¶¼Îª×Ô¼ºµÄ·½·¨¶¨ÒåÁË×Ô¼ºµÄÒì³£¡£¸ü¶àµÄ¹ØÓÚÀàµÄÃèÊöÇë²ÎÔÄ:ref:`tut-classes`ÕÂ½Ú¡£
+å¤§å¤šæ•°çš„æ ‡å‡†åŒ…ä¸ºäº†æè¿°è‡ªå·±çš„é”™è¯¯ï¼Œéƒ½ä¸ºè‡ªå·±çš„æ–¹æ³•å®šä¹‰äº†è‡ªå·±çš„å¼‚å¸¸ã€‚æ›´å¤šçš„å…³äºç±»çš„æè¿°è¯·å‚é˜…:ref:`tut-classes`ç« èŠ‚ã€‚
 
 .. _tut-cleanup:
 
-Defining Clean-up Actions    ¶¨ÒåÇåÀíĞĞÎª
+Defining Clean-up Actions    å®šä¹‰æ¸…ç†è¡Œä¸º
 =========================
 
 The :keyword:`try` statement has another optional clause which is intended to
 define clean-up actions that must be executed under all circumstances.  For
 example::
 
-:keyword:`try` Óï¾ä»¹ÓĞÁíÍâÒ»¸ö¿ÉÑ¡µÄ×Ó¾ä£¬Ëü¶¨ÒåÁËÎŞÂÛÔÚÈÎºÎÇé¿öÏÂ¶¼»áÖ´ĞĞµÄÇåÀíĞĞÎª¡£ ÀıÈç::
+:keyword:`try` è¯­å¥è¿˜æœ‰å¦å¤–ä¸€ä¸ªå¯é€‰çš„å­å¥ï¼Œå®ƒå®šä¹‰äº†æ— è®ºåœ¨ä»»ä½•æƒ…å†µä¸‹éƒ½ä¼šæ‰§è¡Œçš„æ¸…ç†è¡Œä¸ºã€‚ ä¾‹å¦‚::
 
    >>> try:
    ...     raise KeyboardInterrupt
@@ -408,7 +408,7 @@ when any other clause of the :keyword:`try` statement is left via a
 complicated example (having :keyword:`except` and :keyword:`finally` clauses in
 the same :keyword:`try` statement works as of Python 2.5)::
 
-ÎŞÂÛÔõÑùÀë¿ªµÄ :keyword:`try` £¬*finally×Ó¾ä*¶¼»áÖ´ĞĞ£¬¶ø²»¹Ü*try×Ó¾ä*ÀïÃæÓĞÃ»ÓĞ·¢ÉúÒì³£¡£Èç¹ûÒ»¸öÒì³£ÔÚ :keyword:`try` ×Ó¾äÀï£¨»òÕßÔÚ :keyword:`except` ºÍ :keyword:`else` ×Ó¾äÀï£©±»Å×³ö£¬¶øÓÖÃ»ÓĞÈÎºÎµÄ :keyword:`except` °ÑËü½Ø×¡£¬ÄÇÃ´Õâ¸öÒì³£»áÔÚ :keyword:`finally` ×Ó¾äÖ´ĞĞºóÔÙ´Î±»Å×³ö¡£:keyword:`finally` ×Ó¾ä×ÜÊÇµ²ÔÚ³ÌĞòÒªÅÜÂ·µÄÂ·ÖĞ¼ä£¬ÒòÎªÀë¿ª :keyword:`try` Óï¾äµÄÊ±ºòÒ»¶¨»áÖ´ĞĞ£¬ÉõÖÁ :keyword:`break`£¬ :keyword:`continue` ºÍ :keyword:`return` Ò²ÌÓ²»³öËûµÄÊÖÕÆĞÄ¡£ÏÂÃæÊÇÒ»¸ö¸ü¼Ó¸´ÔÓµÄÀı×Ó£¨ÔÚÍ¬Ò»¸ö :keyword:`try` Óï¾äÀï°üº¬ :keyword:`except` ºÍ :keyword:`finally` ×Ó¾ä£¬¾ÍÏñÔÚPython2.5Àï£©::
+æ— è®ºæ€æ ·ç¦»å¼€çš„ :keyword:`try` ï¼Œ*finallyå­å¥*éƒ½ä¼šæ‰§è¡Œï¼Œè€Œä¸ç®¡*tryå­å¥*é‡Œé¢æœ‰æ²¡æœ‰å‘ç”Ÿå¼‚å¸¸ã€‚å¦‚æœä¸€ä¸ªå¼‚å¸¸åœ¨ :keyword:`try` å­å¥é‡Œï¼ˆæˆ–è€…åœ¨ :keyword:`except` å’Œ :keyword:`else` å­å¥é‡Œï¼‰è¢«æŠ›å‡ºï¼Œè€Œåˆæ²¡æœ‰ä»»ä½•çš„ :keyword:`except` æŠŠå®ƒæˆªä½ï¼Œé‚£ä¹ˆè¿™ä¸ªå¼‚å¸¸ä¼šåœ¨ :keyword:`finally` å­å¥æ‰§è¡Œåå†æ¬¡è¢«æŠ›å‡ºã€‚:keyword:`finally` å­å¥æ€»æ˜¯æŒ¡åœ¨ç¨‹åºè¦è·‘è·¯çš„è·¯ä¸­é—´ï¼Œå› ä¸ºç¦»å¼€ :keyword:`try` è¯­å¥çš„æ—¶å€™ä¸€å®šä¼šæ‰§è¡Œï¼Œç”šè‡³ :keyword:`break`ï¼Œ :keyword:`continue` å’Œ :keyword:`return` ä¹Ÿé€ƒä¸å‡ºä»–çš„æ‰‹æŒå¿ƒã€‚ä¸‹é¢æ˜¯ä¸€ä¸ªæ›´åŠ å¤æ‚çš„ä¾‹å­ï¼ˆåœ¨åŒä¸€ä¸ª :keyword:`try` è¯­å¥é‡ŒåŒ…å« :keyword:`except` å’Œ :keyword:`finally` å­å¥ï¼Œå°±åƒåœ¨Python2.5é‡Œï¼‰::
 
    >>> def divide(x, y):
    ...     try:
@@ -438,17 +438,17 @@ As you can see, the :keyword:`finally` clause is executed in any event.  The
 :keyword:`except` clause and therefore re-raised after the :keyword:`finally`
 clauses has been executed.
 
-ÕıÈçÄãËù¼û£¬:keyword:`finally` ×Ó¾äÔÚÈÎºÎÇé¿öÏÂ¶¼ÔËĞĞ¡£Òì³£ :exc:`TypeError` ÔÚ×öÁ½¸ö×Ö·û´´³ı·¨µÄÊ±ºò²¢Ã»ÓĞ±»ÈÎºÎµÄ :keyword:`except` ½Ø»ñ£¬µ«ÊÇËüÒ²ÊÇÔÚ :keyword:`finally` ×Ó¾äÖ´ĞĞºó²ÅÔÙ´Î±»Å×³öµÄ¡£
+æ­£å¦‚ä½ æ‰€è§ï¼Œ:keyword:`finally` å­å¥åœ¨ä»»ä½•æƒ…å†µä¸‹éƒ½è¿è¡Œã€‚å¼‚å¸¸ :exc:`TypeError` åœ¨åšä¸¤ä¸ªå­—ç¬¦åˆ›é™¤æ³•çš„æ—¶å€™å¹¶æ²¡æœ‰è¢«ä»»ä½•çš„ :keyword:`except` æˆªè·ï¼Œä½†æ˜¯å®ƒä¹Ÿæ˜¯åœ¨ :keyword:`finally` å­å¥æ‰§è¡Œåæ‰å†æ¬¡è¢«æŠ›å‡ºçš„ã€‚
 
 In real world applications, the :keyword:`finally` clause is useful for
 releasing external resources (such as files or network connections), regardless
 of whether the use of the resource was successful.
 
-ÔÚÕæÊµµÄÓ¦ÓÃÖĞ£¬:keyword:`finally` ×Ó¾äÍ¨³£ÓÃÀ´ÊÍ·ÅÍâ²¿×ÊÔ´£¨±ÈÈçÎÄ¼ş»òÕßÍøÂçÁ¬½Ó£©£¬ÎŞÂÛÕâĞ©×ÊÔ´ÊÇ·ñ±»³É¹¦µÄÊ¹ÓÃ¡£
+åœ¨çœŸå®çš„åº”ç”¨ä¸­ï¼Œ:keyword:`finally` å­å¥é€šå¸¸ç”¨æ¥é‡Šæ”¾å¤–éƒ¨èµ„æºï¼ˆæ¯”å¦‚æ–‡ä»¶æˆ–è€…ç½‘ç»œè¿æ¥ï¼‰ï¼Œæ— è®ºè¿™äº›èµ„æºæ˜¯å¦è¢«æˆåŠŸçš„ä½¿ç”¨ã€‚
 
 .. _tut-cleanup-with:
 
-Predefined Clean-up Actions    Ô¤¶¨ÒåµÄÇåÀíĞĞÎª
+Predefined Clean-up Actions    é¢„å®šä¹‰çš„æ¸…ç†è¡Œä¸º
 ===========================
 
 Some objects define standard clean-up actions to be undertaken when the object
@@ -456,7 +456,7 @@ is no longer needed, regardless of whether or not the operation using the object
 succeeded or failed. Look at the following example, which tries to open a file
 and print its contents to the screen. ::
 
-Ò»Ğ©¶ÔÏó¶¨ÒåÁË±ê×¼µÄÇåÀíĞĞÎª£¬ÎŞÂÛÏµÍ³ÊÇ·ñ³É¹¦µÄÊ¹ÓÃÁËËü£¬Ò»µ©²»ĞèÒªËüÁË£¬ÄÇÃ´Õâ¸ö±ê×¼µÄÇåÀíĞĞÎª¾Í»áÖ´ĞĞ¡£ÕâÃæÕâ¸öÀı×ÓÕ¹Ê¾ÁË³¢ÊÔ´ò¿ªÒ»¸öÎÄ¼ş£¬È»ºó°ÑÄÚÈİ´òÓ¡µ½ÆÁÄ»ÉÏ¡£ ::
+ä¸€äº›å¯¹è±¡å®šä¹‰äº†æ ‡å‡†çš„æ¸…ç†è¡Œä¸ºï¼Œæ— è®ºç³»ç»Ÿæ˜¯å¦æˆåŠŸçš„ä½¿ç”¨äº†å®ƒï¼Œä¸€æ—¦ä¸éœ€è¦å®ƒäº†ï¼Œé‚£ä¹ˆè¿™ä¸ªæ ‡å‡†çš„æ¸…ç†è¡Œä¸ºå°±ä¼šæ‰§è¡Œã€‚è¿™é¢è¿™ä¸ªä¾‹å­å±•ç¤ºäº†å°è¯•æ‰“å¼€ä¸€ä¸ªæ–‡ä»¶ï¼Œç„¶åæŠŠå†…å®¹æ‰“å°åˆ°å±å¹•ä¸Šã€‚ ::
 
    for line in open("myfile.txt"):
        print(line)
@@ -467,7 +467,7 @@ This is not an issue in simple scripts, but can be a problem for larger
 applications. The :keyword:`with` statement allows objects like files to be 
 used in a way that ensures they are always cleaned up promptly and correctly. ::
 
-Õâ¶Î´úÂëµÄÎÊÌâÊÇ£¬µ±Ö´ĞĞÍê±Ïºó£¬ÎÄ¼ş»á±£³Ö´ò¿ª×´Ì¬£¬²¢Ã»ÓĞ±»¹Ø±Õ¡£ÔÚÒ»Ğ©¼òµ¥µÄ½Å±¾ÀïÃæÕâ²»ÊÇÎÊÌâ£¬µ«ÊÇÔÚ´óĞÍµÄÓ¦ÓÃÖĞÎÊÌâ¿É¾Í´óÁË¡£:keyword:`with` Óï¾ä¾Í¿ÉÒÔ±£Ö¤ÖîÈçÎÄ¼şÖ®ÀàµÄ¶ÔÏóÔÚÊ¹ÓÃÍêÖ®ºóÒ»¶¨»áÕıÈ·µÄÖ´ĞĞËûµÄÇåÀí·½·¨¡£ ::
+è¿™æ®µä»£ç çš„é—®é¢˜æ˜¯ï¼Œå½“æ‰§è¡Œå®Œæ¯•åï¼Œæ–‡ä»¶ä¼šä¿æŒæ‰“å¼€çŠ¶æ€ï¼Œå¹¶æ²¡æœ‰è¢«å…³é—­ã€‚åœ¨ä¸€äº›ç®€å•çš„è„šæœ¬é‡Œé¢è¿™ä¸æ˜¯é—®é¢˜ï¼Œä½†æ˜¯åœ¨å¤§å‹çš„åº”ç”¨ä¸­é—®é¢˜å¯å°±å¤§äº†ã€‚:keyword:`with` è¯­å¥å°±å¯ä»¥ä¿è¯è¯¸å¦‚æ–‡ä»¶ä¹‹ç±»çš„å¯¹è±¡åœ¨ä½¿ç”¨å®Œä¹‹åä¸€å®šä¼šæ­£ç¡®çš„æ‰§è¡Œä»–çš„æ¸…ç†æ–¹æ³•ã€‚ ::
 
    with open("myfile.txt") as f:
        for line in f:
@@ -477,4 +477,4 @@ After the statement is executed, the file *f* is always closed, even if a
 problem was encountered while processing the lines. Objects which, like files,
 provide predefined clean-up actions will indicate this in their documentation.
 
-Õâ¶Î´úÂëÖ´ĞĞÍê±Ïºó£¬ÎÄ¼ş*f*×ÜÊÇ»á¹Ø±Õ£¬¾ÍËãÔÚ´¦Àí¹ı³ÌÖĞ³öÎÊÌâÁË£¬ËüÒ²±£Ö¤»á¹ÜÀí¡£·²ÊÇÏñÎÄ¼şÕâÑùµÄ¶ÔÏó£¬Ëü¶¼»áÔÚ×Ô¼ºµÄÎÄµµÖĞ×¢Ã÷ÊÇ·ñÌá¹©ÁËÔ¤¶¨ÒåµÄÇåÀí¶ÔÏó¡£
+è¿™æ®µä»£ç æ‰§è¡Œå®Œæ¯•åï¼Œæ–‡ä»¶*f*æ€»æ˜¯ä¼šå…³é—­ï¼Œå°±ç®—åœ¨å¤„ç†è¿‡ç¨‹ä¸­å‡ºé—®é¢˜äº†ï¼Œå®ƒä¹Ÿä¿è¯ä¼šç®¡ç†ã€‚å‡¡æ˜¯åƒæ–‡ä»¶è¿™æ ·çš„å¯¹è±¡ï¼Œå®ƒéƒ½ä¼šåœ¨è‡ªå·±çš„æ–‡æ¡£ä¸­æ³¨æ˜æ˜¯å¦æä¾›äº†é¢„å®šä¹‰çš„æ¸…ç†å¯¹è±¡ã€‚
