@@ -1,18 +1,22 @@
 .. _tut-fp-issues:
 
 **************************************************
-Floating Point Arithmetic:  Issues and Limitations
+Floating Point Arithmetic:  Issues and Limitations 浮点运算: 问题和限制
 **************************************************
 
 .. sectionauthor:: Tim Peters <tim_one@users.sourceforge.net>
 
 
 Floating-point numbers are represented in computer hardware as base 2 (binary)
-fractions.  For example, the decimal fraction ::
+fractions.  For example, the decimal fraction
+
+浮点数在计算机硬件中以二进制的小数来表示.  比如, 十进制的小数 ::
 
    0.125
 
-has value 1/10 + 2/100 + 5/1000, and in the same way the binary fraction ::
+has value 1/10 + 2/100 + 5/1000, and in the same way the binary fraction
+
+它的值为 1/10 + 2/100 + 5/1000, 同样在二进制小数中 ::
 
    0.001
 
@@ -20,21 +24,31 @@ has value 0/2 + 0/4 + 1/8.  These two fractions have identical values, the only
 real difference being that the first is written in base 10 fractional notation,
 and the second in base 2.
 
+它的值是 0/2 + 0/4 + 1/8.  这两个小数的值相等, 唯一的差别是前一个是10进制的, 后一个是二进制的.
+
 Unfortunately, most decimal fractions cannot be represented exactly as binary
 fractions.  A consequence is that, in general, the decimal floating-point
 numbers you enter are only approximated by the binary floating-point numbers
 actually stored in the machine.
 
+不幸的是, 多数的十进制小数不能被精确的表示为二进制小数. 导致的结果是, 计算机中存储的浮点数只是我们输入的十进制浮点数的近似值.
+
 The problem is easier to understand at first in base 10.  Consider the fraction
-1/3.  You can approximate that as a base 10 fraction::
+1/3.  You can approximate that as a base 10 fraction
+
+为了便于的理解, 我们举个十进制的例子. 考虑一下分数 1/3. 你可以把它写成十进制小数形式 ::
 
    0.3
 
-or, better, ::
+or, better,
+
+或者更加精确 ::
 
    0.33
 
-or, better, ::
+or, better,
+
+再精确一点 ::
 
    0.333
 
@@ -42,14 +56,20 @@ and so on.  No matter how many digits you're willing to write down, the result
 will never be exactly 1/3, but will be an increasingly better approximation of
 1/3.
 
+甚至更加精确. 但是无论写多少个数字, 结果永远不会精确的等于分数 1/3, 但得到的值会更加近似于 1/3.
+
 In the same way, no matter how many base 2 digits you're willing to use, the
 decimal value 0.1 cannot be represented exactly as a base 2 fraction.  In base
-2, 1/10 is the infinitely repeating fraction ::
+2, 1/10 is the infinitely repeating fraction
+
+同样, 不管使用多少个二进制数字, 十进制的值 0.1 无法精确的用二进制小数来表示. 在二进制中, 1/10 是一个无限循环小数 ::
 
    0.0001100110011001100110011001100110011001100110011...
 
 Stop at any finite number of bits, and you get an approximation.  This is why
-you see things like::
+you see things like
+
+取一个有限的位, 得到一个近似值. 这就是为什么你会看到下面的 ::
 
    >>> 0.1
    0.10000000000000001
@@ -60,14 +80,18 @@ store floating-point values can vary across machines, and Python only prints a
 decimal approximation to the true decimal value of the binary approximation
 stored by the machine.  On most machines, if Python were to print the true
 decimal value of the binary approximation stored for 0.1, it would have to
-display ::
+display
+
+对于大多数的计算机来说, 当你在Python提示符上输入 0.1 你会看到, 你会看到上面的. 即使不是, 那是因为在不同机器上硬件用来存储浮点数的位数不一样, 另外, Python 只打印机器存储的二进制对应十进制的近似值. 在大多数机器上, 如果Python打印出二进制 0.1 近似值对应的真实十进制的话, 那么会显示 ::
 
    >>> 0.1
    0.1000000000000000055511151231257827021181583404541015625
 
 instead!  The Python prompt uses the builtin :func:`repr` function to obtain a
 string version of everything it displays.  For floats, ``repr(float)`` rounds
-the true decimal value to 17 significant digits, giving ::
+the true decimal value to 17 significant digits, giving
+
+在任何对象需要被当作 string 显示的时候, Python提示符用内置函数 :func:`repr` 来把对象转换成字符串. 对于浮点数, ``repr(float)`` 将浮点数的真实值四舍五入成 17 位数字, 就如同 ::
 
    0.10000000000000001
 
@@ -139,7 +163,7 @@ supply flexible and easy ways to round float results for display.
 If you are a heavy user of floating point operations you should take a look
 at the Numerical Python package and many other packages for mathematical and
 statistical operations supplied by the SciPy project. See <http://scipy.org>.
- 
+
 .. _tut-fp-error:
 
 Representation Error
