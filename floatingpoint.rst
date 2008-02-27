@@ -91,7 +91,7 @@ instead!  The Python prompt uses the builtin :func:`repr` function to obtain a
 string version of everything it displays.  For floats, ``repr(float)`` rounds
 the true decimal value to 17 significant digits, giving
 
-在任何对象需要被当作 string 显示的时候, Python提示符用内置函数 :func:`repr` 来把对象转换成字符串. 对于浮点数, ``repr(float)`` 将浮点数的真实值四舍五入成 17 位数字, 就如同 ::
+在任何对象需要被当作 string 显示的时候, Python提示符用内置函数 :func:`repr` 来把对象转换成字符串. 对于浮点数, ``repr(float)`` 将浮点数的真实值取整变成 17 位有效数字, 就如同 ::
 
    0.10000000000000001
 
@@ -99,15 +99,21 @@ the true decimal value to 17 significant digits, giving
 enough (on most machines) so that ``eval(repr(x)) == x`` exactly for all finite
 floats *x*, but rounding to 16 digits is not enough to make that true.
 
+之所以 ``repr(float)`` 产生17位有效数字，是因为在执行``eval(repr(x)) == x``这样的表达式的时候，对那些有限位的浮点数 *x*，取整以后的16位数字足够让表达式值为真。
+
 Note that this is in the very nature of binary floating-point: this is not a bug
 in Python, and it is not a bug in your code either.  You'll see the same kind of
 thing in all languages that support your hardware's floating-point arithmetic
 (although some languages may not *display* the difference by default, or in all
 output modes).
 
+在处理浮点数的时候，这种情况相当的普遍：这不是Python的bug，也不是你写的代码的bug。在任何支持硬件浮点运算的语言中，都会出现这样的情况。(尽管在某些语言或者输出模式中，默认不*显示*出区别).
+
 Python's builtin :func:`str` function produces only 12 significant digits, and
 you may wish to use that instead.  It's unusual for ``eval(str(x))`` to
-reproduce *x*, but the output may be more pleasant to look at::
+reproduce *x*, but the output may be more pleasant to look at
+
+Python的内置函数 :func:`str`只生成12位有效数字，也许你可以用它。使用``eval(str(x))``来生成*x*不怎么常用，但是我们可以得到更加自然的输出值::
 
    >>> print(str(0.1))
    0.1
@@ -116,13 +122,19 @@ It's important to realize that this is, in a real sense, an illusion: the value
 in the machine is not exactly 1/10, you're simply rounding the *display* of the
 true machine value.
 
-Other surprises follow from this one.  For example, after seeing ::
+但是我们必须明确的认识到，真实的情况是，在计算机中的值并不精确的等于1/10，我们只是简单的取整以后把它 *显示* 出来.
+
+Other surprises follow from this one.  For example, after seeing
+
+由此引发出一些其他的问题。比如下面的 ::
 
    >>> 0.1
    0.10000000000000001
 
 you may be tempted to use the :func:`round` function to chop it back to the
-single digit you expect.  But that makes no difference::
+single digit you expect.  But that makes no difference
+
+当我们打算用 :func:`round`函数取小数点后面一位的时候，却发现完全没有作用::
 
    >>> round(0.1, 1)
    0.10000000000000001
@@ -131,8 +143,12 @@ The problem is that the binary floating-point value stored for "0.1" was already
 the best possible binary approximation to 1/10, so trying to round it again
 can't make it better:  it was already as good as it gets.
 
+出现这样的问题的原因是，"0.1"的二进制的浮点数值已经是1/10的最近似值了，所以无论怎么近似，结果还是一样。
+
 Another consequence is that since 0.1 is not exactly 1/10, summing ten values of
 0.1 may not yield exactly 1.0, either::
+
+另外一个后果是，因为0.1不等于1/10，所以十个0.1之和也不会等于1.0
 
    >>> sum = 0.0
    >>> for i in range(10):
@@ -145,6 +161,8 @@ Binary floating-point arithmetic holds many surprises like this.  The problem
 with "0.1" is explained in precise detail below, in the "Representation Error"
 section.  See `The Perils of Floating Point <http://www.lahey.com/float.htm>`_
 for a more complete account of other common surprises.
+
+二进制浮点运算给我们带来很多这样的“惊喜”。"0.1"带来的问题在本文的"表现错误"小节中有着详细的解释。另外，`The Perils of Floating Point <http://www.lahey.com/float.htm>`_ 中也有更加完整的描述。
 
 As that says near the end, "there are no easy answers."  Still, don't be unduly
 wary of floating-point!  The errors in Python float operations are inherited
