@@ -171,6 +171,8 @@ more than 1 part in 2\*\*53 per operation.  That's more than adequate for most
 tasks, but you do need to keep in mind that it's not decimal arithmetic, and
 that every float operation can suffer a new rounding error.
 
+最后我们要说，“没有完美的方法”。但是，不要过分的拒绝浮点数！Python浮点操作中的错误是由硬件本身限制的，在大多数的机器上每次运算的误差不会超过2的53次方之一。这样的误差在大多数的任务中是可以被接受的。但是，我们还是要牢记我们做的并不是十进制运算，任何一个浮点预算都有可能产生一个新的错误。
+
 While pathological cases do exist, for most casual use of floating-point
 arithmetic you'll see the result you expect in the end if you simply round the
 display of your final results to the number of decimal digits you expect.
@@ -178,9 +180,13 @@ display of your final results to the number of decimal digits you expect.
 Python's ``%`` format operator: the ``%g``, ``%f`` and ``%e`` format codes
 supply flexible and easy ways to round float results for display.
 
+当不出意外的时候，通常情况下大多数的浮点运算我们会得到我们期望的结果，你只需要简单的取小数位，最终得到和十进制的一样的显示结果。:func:`str` 函数基本上够用了，为了更好的控制我们还可以看看Python的``%``格式化操作符：``%g``, ``%f``和``%e``格式化符能让我们灵活而简单的得到我们想要显示的结果。
+
 If you are a heavy user of floating point operations you should take a look
 at the Numerical Python package and many other packages for mathematical and
 statistical operations supplied by the SciPy project. See <http://scipy.org>.
+
+如果你在工作中频繁的使用浮点数，你应该看一看为数学准备的Numerical Python库和为统计学操作准备的SciPy项目，参见 <http://scipy.org>.
 
 .. _tut-fp-error:
 
