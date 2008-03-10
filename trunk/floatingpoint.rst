@@ -4,13 +4,13 @@
 Floating Point Arithmetic:  Issues and Limitations 浮点运算: 问题和限制
 **************************************************
 
-.. sectionauthor:: Tim Peters <tim_one@users.sourceforge.net>
+.. sectionauthor :: Tim Peters <tim_one@users.sourceforge.net>
 
 
 Floating-point numbers are represented in computer hardware as base 2 (binary)
-fractions.  For example, the decimal fraction
+fractions. For example, the decimal fraction
 
-浮点数在计算机硬件中以二进制的小数来表示.  比如, 十进制的小数 ::
+浮点数在计算机硬件中以二进制的小数来表示. 比如, 十进制的小数 ::
 
    0.125
 
@@ -42,13 +42,13 @@ The problem is easier to understand at first in base 10.  Consider the fraction
 
 or, better,
 
-或者更加精确 ::
+再精确一点 ::
 
    0.33
 
 or, better,
 
-再精确一点 ::
+更加精确 ::
 
    0.333
 
@@ -56,7 +56,7 @@ and so on.  No matter how many digits you're willing to write down, the result
 will never be exactly 1/3, but will be an increasingly better approximation of
 1/3.
 
-甚至更加精确. 但是无论写多少个数字, 结果永远不会精确的等于分数 1/3, 但得到的值会更加近似于 1/3.
+有可能变得更精确. 但是无论写多少个数字, 结果永远不会正好等于分数 1/3, 我们只能得到更近似于 1/3 的值.
 
 In the same way, no matter how many base 2 digits you're willing to use, the
 decimal value 0.1 cannot be represented exactly as a base 2 fraction.  In base
@@ -69,7 +69,7 @@ decimal value 0.1 cannot be represented exactly as a base 2 fraction.  In base
 Stop at any finite number of bits, and you get an approximation.  This is why
 you see things like
 
-取一个有限的位, 得到一个近似值. 这就是为什么你会看到下面的 ::
+取有限的位数, 得到一个近似值. 这就是为什么你会看到下面的结果 ::
 
    >>> 0.1
    0.10000000000000001
@@ -82,7 +82,7 @@ stored by the machine.  On most machines, if Python were to print the true
 decimal value of the binary approximation stored for 0.1, it would have to
 display
 
-对于大多数的计算机来说, 当你在Python提示符上输入 0.1 你会看到, 你会看到上面的. 即使不是, 那是因为在不同机器上硬件用来存储浮点数的位数不一样, 另外, Python 只打印机器存储的二进制对应十进制的近似值. 在大多数机器上, 如果Python打印出二进制 0.1 近似值对应的真实十进制的话, 那么会显示 ::
+对于大多数的计算机来说, 当你在Python提示符上输入 0.1 你会看到, 你会看到上面的. 如果不是, 那可能是因为在不同机器上硬件用来存储浮点数的内存大小不一样, 另外, Python 只打印机器存储的二进制对应十进制的近似值. 在大多数机器上, 如果Python打印出二进制 0.1 近似值对应的真实十进制的话, 那么会显示 ::
 
    >>> 0.1
    0.1000000000000000055511151231257827021181583404541015625
@@ -107,13 +107,13 @@ thing in all languages that support your hardware's floating-point arithmetic
 (although some languages may not *display* the difference by default, or in all
 output modes).
 
-在处理浮点数的时候，这种情况相当的普遍：这不是Python的bug，也不是你写的代码的bug。在任何支持硬件浮点运算的语言中，都会出现这样的情况。(尽管在某些语言或者输出模式中，默认不*显示*出区别).
+在处理浮点数的时候，这种情况相当的普遍：这不是Python的bug，也不是你写的代码的bug。在任何支持硬件浮点运算的语言中，都会出现这样的情况。(尽管在某些语言或者输出模式中，默认*显示*不出区别).
 
 Python's builtin :func:`str` function produces only 12 significant digits, and
 you may wish to use that instead.  It's unusual for ``eval(str(x))`` to
 reproduce *x*, but the output may be more pleasant to look at
 
-Python的内置函数 :func:`str`只生成12位有效数字，也许你可以用它。使用``eval(str(x))``来生成*x*不怎么常用，但是我们可以得到更加自然的输出值::
+Python的内置函数 :func:`str` 只生成保留12位有效数字的浮点数，有时候你可以用它。使用``eval(str(x))``来处理*x*的方法不怎么常用，但是这个方法使得我们可以得到更加自然的输出值 ::
 
    >>> print(str(0.1))
    0.1
@@ -134,7 +134,7 @@ Other surprises follow from this one.  For example, after seeing
 you may be tempted to use the :func:`round` function to chop it back to the
 single digit you expect.  But that makes no difference
 
-当我们打算用 :func:`round`函数取小数点后面一位的时候，却发现完全没有作用::
+当我们打算用 :func:`round`函数取小数点后面一位的时候，却发现完全没有作用 ::
 
    >>> round(0.1, 1)
    0.10000000000000001
@@ -146,7 +146,7 @@ can't make it better:  it was already as good as it gets.
 出现这样的问题的原因是，"0.1"的二进制的浮点数值已经是1/10的最近似值了，所以无论怎么近似，结果还是一样。
 
 Another consequence is that since 0.1 is not exactly 1/10, summing ten values of
-0.1 may not yield exactly 1.0, either::
+0.1 may not yield exactly 1.0, either ::
 
 另外一个后果是，因为0.1不等于1/10，所以十个0.1之和也不会等于1.0
 
@@ -200,7 +200,7 @@ floating-point representation is assumed.
 :dfn:`Representation error` refers to the fact that some (most, actually)
 decimal fractions cannot be represented exactly as binary (base 2) fractions.
 This is the chief reason why Python (or Perl, C, C++, Java, Fortran, and many
-others) often won't display the exact decimal number you expect::
+others) often won't display the exact decimal number you expect ::
 
    >>> 0.1
    0.10000000000000001
@@ -219,7 +219,7 @@ as ::
    J ~= 2**N / 10
 
 and recalling that *J* has exactly 53 bits (is ``>= 2**52`` but ``< 2**53``),
-the best value for *N* is 56::
+the best value for *N* is 56 ::
 
    >>> 2**52
    4503599627370496L
@@ -229,14 +229,14 @@ the best value for *N* is 56::
    7205759403792793L
 
 That is, 56 is the only value for *N* that leaves *J* with exactly 53 bits.  The
-best possible value for *J* is then that quotient rounded::
+best possible value for *J* is then that quotient rounded ::
 
    >>> q, r = divmod(2**56, 10)
    >>> r
    6L
 
 Since the remainder is more than half of 10, the best approximation is obtained
-by rounding up::
+by rounding up ::
 
    >>> q+1
    7205759403792794L
@@ -251,13 +251,13 @@ if we had not rounded up, the quotient would have been a little bit smaller than
 1/10.  But in no case can it be *exactly* 1/10!
 
 So the computer never "sees" 1/10:  what it sees is the exact fraction given
-above, the best 754 double approximation it can get::
+above, the best 754 double approximation it can get ::
 
    >>> .1 * 2**56
    7205759403792794.0
 
 If we multiply that fraction by 10\*\*30, we can see the (truncated) value of
-its 30 most significant decimal digits::
+its 30 most significant decimal digits ::
 
    >>> 7205759403792794 * 10**30 / 2**56
    100000000000000005551115123125L
